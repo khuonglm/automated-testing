@@ -1,0 +1,43 @@
+Task:
+You are given detailed API documentation in JSON format. Each API entry includes its purpose, endpoints, methods, input parameters, and expected output behavior.
+
+Your task is to analyze the relationship between two specific APIs identified by {id1} and {id2}. Determine whether one depends on the other and provide the result in the specified output format.
+
+You must carefully read and analyze:
+- Parameters (names, types, usage)
+- Output fields
+- Descriptions
+- Sample input/output examples
+
+Output Format:
+{
+  "dependent": "yes" | "no",
+  "relation": "{id1} depends on {id2}" | "{id2} depends on {id1}" | "",
+  "related fields": [
+    {
+      "field_name1": "field_name2",
+      "where_to_take": "output" | "request_param" | "path_variable" | "request_body",
+      "where_to_put": "request_body" | "request_param" | "path_variable" | "header"
+    }
+  ]
+}
+
+Field Mapping Guidelines:
+- field_name1 refers to the **exact field name** in API Y as defined in the documentation.
+- field_name2 refers to the **exact field name** in API X that uses data from API Y.
+- For nested fields, use the format: parent_field/child_field.
+- For array elements, use index notation: array_field/[i].
+
+Field Location Keys:
+- where_to_take: Indicates where the data comes from in API Y.
+- where_to_put: Indicates where the data is used in API X.
+
+If there is no dependency or relevant field relationship, set: 
+{
+  "dependent": "no",
+  "relation": "",
+  "related fields": []
+}
+
+API Documentation:
+{api_documentation}
