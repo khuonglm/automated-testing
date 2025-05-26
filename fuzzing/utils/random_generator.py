@@ -49,21 +49,21 @@ class RandomGenerator:
         return value
 
     def generate_random_dict(self, obj: dict[str, any]) -> dict[str, any]:
-        value = {}
+        dic = {}
         for key, value in obj.items():
             if isinstance(value, str):
-                value[key] = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
+                dic[key] = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
             elif isinstance(value, int):
-                value[key] = self.generate_random_int(None, INT_CHARS)
+                dic[key] = self.generate_random_int(None, INT_CHARS)
             elif isinstance(value, float):
-                value[key] = self.generate_random_float(None, INT_CHARS)
+                dic[key] = self.generate_random_float(None, INT_CHARS)
             elif isinstance(value, list):
-                value[key] = self.generate_random_list(None, value[0])
+                dic[key] = self.generate_random_list(None, value[0])
             elif isinstance(value, dict):
-                value[key] = self.generate_random_dict(value)
+                dic[key] = self.generate_random_dict(value)
             elif isinstance(value, bool):
-                value[key] = self.generate_random_bool()
-        return value
+                dic[key] = self.generate_random_bool()
+        return dic
 
     def sample_from_list(self, length: int | None = None, population: list[any] = None) -> any:
         """
