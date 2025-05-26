@@ -4,6 +4,8 @@ from typing import Any
 from .random_generator import RandomGenerator
 from .datatypes import *
 
+import random
+
 # String distances
 def hamming_distance(s1: str, s2: str) -> int:
     """Number of positions where the corresponding symbols differ between 2 strings of equal length."""
@@ -42,6 +44,15 @@ class AdaptiveRandomGenerator:
         self.generator = generator
         self.candidates_per_round = candidates_per_round
     
+    def generate_random_length(self) -> int:
+        return random.randint(self.MIN_LENGTH, self.MAX_LENGTH)
+
+    # Primitives
+
+    def generate_random_bool(self):
+        while True:
+            yield self.generator.generate_random_bool()
+    
     def generate_random_string(
         self,
         length: int | None = None,
@@ -66,6 +77,50 @@ class AdaptiveRandomGenerator:
     ):
         return self.generate_random(lambda: self.generator.generate_random_float(length, chars), distance, [])
     
+    # Objects
+
+    def generate_random_list(self, length: int | None = None, obj: any = None):
+        while True:
+            if length is None:
+                length = self.generate_random_length()  
+
+            if isinstance(obj, str):
+                generator = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
+                yield [next(generator) for _ in range(length)]
+            elif isinstance(obj, int):
+                generator = self.generate_random_int(None, INT_CHARS)
+                yield [next(generator) for _ in range(length)]
+            elif isinstance(obj, float):
+                generator = self.generate_random_float(None, INT_CHARS)
+                yield [next(generator) for _ in range(length)]
+            elif isinstance(obj, list):
+                generator = self.generate_random_list(None, obj[0])
+                yield [next(generator) for _ in range(length)]
+            elif isinstance(obj, dict):
+                generator = self.generate_random_dict(None, obj)
+                yield [next(generator) for _ in range(length)]
+            else:
+                yield []
+    
+    def generate_random_dict(self, obj: dict[str, any]):
+        while True:
+            dic = {}
+            for key, value in obj.items():
+                if isinstance(value, str):
+                    dic[key] = next(self.generate_random_string(None, STR_CHARS_NO_SPECIAL))
+                elif isinstance(value, int):
+                    dic[key] = next(self.generate_random_int(None, INT_CHARS))
+                elif isinstance(value, float):
+                    dic[key] = next(self.generate_random_float(None, INT_CHARS))
+                elif isinstance(value, list):
+                    dic[key] = next(self.generate_random_list(None, value[0]))
+                elif isinstance(value, dict):
+                    dic[key] = next(self.generate_random_dict(value))
+                elif isinstance(value, bool):
+                    dic[key] = next(self.generate_random_bool())
+            yield dic
+
+
     def generate_random(self, generate: Callable[[], Any], distance: Callable[[Any, Any], float | int], reference_set: list[Any]):
         # Seed element
         seed = generate()
