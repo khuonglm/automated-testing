@@ -1,18 +1,17 @@
-import random
 from collections.abc import Callable
+from typing import Any
 
 from .random_generator import RandomGenerator
 from .datatypes import *
 
 # String distances
-def hamming_distance(s1: str, s2: str) -> float:
+def hamming_distance(s1: str, s2: str) -> int:
     """Number of positions where the corresponding symbols differ between 2 strings of equal length."""
     if len(s1) != len(s2):
         raise ValueError("Strings are required to be of same length in Hamming distance.")
     return sum(c1 != c2 for c1, c2 in zip(s1, s2))
 
-# todo!
-def levenshtein_distance(s1: str, s2: str) -> float:
+def levenshtein_distance(s1: str, s2: str) -> int:
     """
     The minimum number of edits (insertions, deletions, and substitutions)
     required to change s1 into s2.
@@ -38,30 +37,48 @@ class AdaptiveRandomGenerator:
     def __init__(
         self,
         generator: type[RandomGenerator],
-        candidates_per_round: int = 3,
+        candidates_per_round: int = 5,
     ):
         self.generator = generator
         self.candidates_per_round = candidates_per_round
-        self.string_reference_set = []
     
     def generate_random_string(
         self,
         length: int | None = None,
         chars: str = STR_CHARS,
-        distance: Callable[[str, str], float] = levenshtein_distance
+        distance: Callable[[str, str], int] = levenshtein_distance,
     ):
+        return self.generate_random(lambda: self.generator.generate_random_string(length, chars), distance, [])
+    
+    def generate_random_int(
+        self,
+        length: int | None = None,
+        chars: str = INT_CHARS,
+        distance: Callable[[int, int], int] = lambda i1, i2: abs(i1 - i2),
+    ):
+        return self.generate_random(lambda: self.generator.generate_random_int(length, chars), distance, [])
+    
+    def generate_random_float(
+        self,
+        length: int | None = None,
+        chars: str = INT_CHARS,
+        distance: Callable[[int, int], int] = lambda i1, i2: abs(i1 - i2),
+    ):
+        return self.generate_random(lambda: self.generator.generate_random_float(length, chars), distance, [])
+    
+    def generate_random(self, generate: Callable[[], Any], distance: Callable[[Any, Any], float | int], reference_set: list[Any]):
         # Seed element
-        seed = self.generator.generate_random_string(length, chars)
-        self.string_reference_set.append(seed)
+        seed = generate()
+        reference_set.append(seed)
         yield seed
 
         # Generate the rest adaptively
         while True:
-            candidates = [self.generator.generate_random_string(length, chars) for _ in range(self.candidates_per_round)]
+            candidates = [generate() for _ in range(self.candidates_per_round)]
             # Find the candidate that is the furthest away from the reference set
             best_candidate = max(
                 candidates,
-                key=lambda c: min(distance(c, reference) for reference in self.string_reference_set)
+                key=lambda c: min(distance(c, reference) for reference in reference_set)
             )
-            self.string_reference_set.append(best_candidate)
+            reference_set.append(best_candidate)
             yield best_candidate

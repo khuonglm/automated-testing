@@ -28,7 +28,7 @@ class RandomGenerator:
     def generate_random_float(self, length: int | None = None, chars: str = INT_CHARS) -> float:
         if length is None:
             length = self.generate_random_length()
-        point = random.randint(1, length - 1)
+        point = random.randint(1, length)
         return float(''.join(random.choice(chars) for _ in range(point)) + '.' + ''.join(random.choice(chars) for _ in range(length - point)))
 
     def generate_random_list(self, length: int | None = None, obj: any = None) -> list[any]:
