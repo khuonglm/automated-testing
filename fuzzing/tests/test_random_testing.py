@@ -3,7 +3,7 @@ from ..utils.adaptive_random_generator import *
 import random
 
 random_generator = RandomGenerator()
-adaptive_random_generator = AdaptiveRandomGenerator(random_generator, 3)
+adaptive_random_generator = AdaptiveRandomGenerator(random_generator, 5, 10)
 
 random.seed(123)
 
@@ -26,12 +26,34 @@ class TestDistances:
 
     def test_random_strings(self, distance=levenshtein_distance):
         adaptive_random_string_generator = adaptive_random_generator.generate_random_string()
+        assert isinstance(next(adaptive_random_string_generator), str)
+
         self.base_test(lambda: random_generator.generate_random_string(), lambda: next(adaptive_random_string_generator), distance)
     
     def test_random_ints(self, distance=lambda i1, i2: abs(i1 - i2)):
         adaptive_random_int_generator = adaptive_random_generator.generate_random_int()
+        assert isinstance(next(adaptive_random_int_generator), int)
+
         self.base_test(lambda: random_generator.generate_random_int(), lambda: next(adaptive_random_int_generator), distance)
     
     def test_random_floats(self, distance=lambda i1, i2: abs(i1 - i2)):
         adaptive_random_float_generator = adaptive_random_generator.generate_random_float()
+        assert isinstance(next(adaptive_random_float_generator), float)
+
         self.base_test(lambda: random_generator.generate_random_float(), lambda: next(adaptive_random_float_generator), distance)
+    
+    def test_random_list(self):
+        template = [0]
+        adaptive_random_list_generator = adaptive_random_generator.generate_random_list(10, template)
+        assert isinstance(next(adaptive_random_list_generator), list)
+
+    def test_random_dic(self):
+        template = {
+            "x": "",
+            "structured_obj": {
+                "y": 0
+            },
+        }
+
+        adaptive_random_dict_generator = adaptive_random_generator.generate_random_dict(template)
+        assert isinstance(next(adaptive_random_dict_generator), dict)

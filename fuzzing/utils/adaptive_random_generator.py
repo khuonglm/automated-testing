@@ -1,4 +1,5 @@
 from collections.abc import Callable
+from collections import deque
 from typing import Any
 
 from .random_generator import RandomGenerator
@@ -36,13 +37,20 @@ def levenshtein_distance(s1: str, s2: str) -> int:
     return previous_row[-1]
 
 class AdaptiveRandomGenerator:
+    MIN_LENGTH = 1
+    MAX_LENGTH = 100
+    
     def __init__(
         self,
         generator: type[RandomGenerator],
         candidates_per_round: int = 5,
+        max_reference_set_size = 10
     ):
         self.generator = generator
+        # Number of candidates to choose the next input from
         self.candidates_per_round = candidates_per_round
+        # Maximum size of reference set. If set to `None`, the reference set may grow to an arbitrary length.
+        self.max_reference_set_size = max_reference_set_size
     
     def generate_random_length(self) -> int:
         return random.randint(self.MIN_LENGTH, self.MAX_LENGTH)
@@ -59,7 +67,7 @@ class AdaptiveRandomGenerator:
         chars: str = STR_CHARS,
         distance: Callable[[str, str], int] = levenshtein_distance,
     ):
-        return self.generate_random(lambda: self.generator.generate_random_string(length, chars), distance, [])
+        return self.generate_random(lambda: self.generator.generate_random_string(length, chars), distance, deque([], maxlen=self.max_reference_set_size))
     
     def generate_random_int(
         self,
@@ -67,7 +75,7 @@ class AdaptiveRandomGenerator:
         chars: str = INT_CHARS,
         distance: Callable[[int, int], int] = lambda i1, i2: abs(i1 - i2),
     ):
-        return self.generate_random(lambda: self.generator.generate_random_int(length, chars), distance, [])
+        return self.generate_random(lambda: self.generator.generate_random_int(length, chars), distance, deque([], maxlen=self.max_reference_set_size))
     
     def generate_random_float(
         self,
@@ -75,64 +83,60 @@ class AdaptiveRandomGenerator:
         chars: str = INT_CHARS,
         distance: Callable[[int, int], int] = lambda i1, i2: abs(i1 - i2),
     ):
-        return self.generate_random(lambda: self.generator.generate_random_float(length, chars), distance, [])
+        return self.generate_random(lambda: self.generator.generate_random_float(length, chars), distance, deque([], maxlen=self.max_reference_set_size))
     
     # Objects
 
     def generate_random_list(self, length: int | None = None, obj: any = None):
-        generator_str = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
-        generator_int = self.generate_random_int(None, INT_CHARS)
-        generator_float = self.generate_random_float(None, INT_CHARS)
-        generator_list = self.generate_random_list(None, obj[0])
-        generator_dict = self.generate_random_dict(obj)
-        generator_bool = self.generate_random_bool()
+        if isinstance(obj, str):
+            generator = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
+        elif isinstance(obj, int):
+            generator = self.generate_random_int(None, INT_CHARS)
+        elif isinstance(obj, float):
+            generator = self.generate_random_float(None, INT_CHARS)
+        elif isinstance(obj, list):
+            generator = self.generate_random_list(None, obj[0])
+        elif isinstance(obj, dict):
+            generator = self.generate_random_dict(obj)
+        elif isinstance(obj, bool):
+            generator = self.generate_random_bool()
+        else:
+            raise TypeError("obj must have a valid type")
 
         while True:
             if length is None:
-                length = self.generate_random_length()  
+                length = self.generate_random_length() 
 
-            if isinstance(obj, str):
-                yield [next(generator_str) for _ in range(length)]
-            elif isinstance(obj, int):
-                yield [next(generator_int) for _ in range(length)]
-            elif isinstance(obj, float):
-                yield [next(generator_float) for _ in range(length)]
-            elif isinstance(obj, list):
-                yield [next(generator_list) for _ in range(length)]
-            elif isinstance(obj, dict):
-                yield [next(generator_dict) for _ in range(length)]
-            elif isinstance(obj, bool):
-                yield [next(generator_bool) for _ in range(length)]
-            else:
-                yield []
+            yield [next(generator) for _ in range(length)]
     
     def generate_random_dict(self, obj: dict[str, any]):
-        generator_str = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
-        generator_int = self.generate_random_int(None, INT_CHARS)
-        generator_float = self.generate_random_float(None, INT_CHARS)
-        generator_list = self.generate_random_list(None, obj[0])
-        generator_dict = self.generate_random_dict(obj)
-        generator_bool = self.generate_random_bool()
+        if not isinstance(obj, dict):
+            raise TypeError("obj must be a dictionary.")
 
+        generator_map = {}
+        for key, value in obj.items():
+            if isinstance(value, str):
+                generator_map[key] = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
+            elif isinstance(value, int):
+                generator_map[key] = self.generate_random_int(None, INT_CHARS)
+            elif isinstance(value, float):
+                generator_map[key] = self.generate_random_float(None, INT_CHARS)
+            elif isinstance(value, list):
+                generator_map[key] = self.generate_random_list(None, value[0])
+            elif isinstance(value, dict):
+                generator_map[key] = self.generate_random_dict(value)
+            elif isinstance(value, bool):
+                generator_map[key] = self.generate_random_bool()
+            else:
+                raise TypeError("obj must have a valid type")
+            
         while True:
             dic = {}
             for key, value in obj.items():
-                if isinstance(value, str):
-                    dic[key] = next(generator_str)
-                elif isinstance(value, int):
-                    dic[key] = next(generator_int)
-                elif isinstance(value, float):
-                    dic[key] = next(generator_float)
-                elif isinstance(value, list):
-                    dic[key] = next(generator_list)
-                elif isinstance(value, dict):
-                    dic[key] = next(generator_dict)
-                elif isinstance(value, bool):
-                    dic[key] = next(generator_bool)
+                dic[key] = next(generator_map[key])
             yield dic
 
-
-    def generate_random(self, generate: Callable[[], Any], distance: Callable[[Any, Any], float | int], reference_set: list[Any]):
+    def generate_random(self, generate: Callable[[], Any], distance: Callable[[Any, Any], float | int], reference_set: deque[Any]):
         # Seed element
         seed = generate()
         reference_set.append(seed)
