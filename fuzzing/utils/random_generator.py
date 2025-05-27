@@ -1,17 +1,8 @@
 import random
-import string
 
+from .datatypes import *
+    
 class RandomGenerator:
-    STR_CHARS = "!@#$%^&*" + string.ascii_lowercase + string.digits + string.ascii_uppercase
-    STR_CHARS_NO_SPECIAL = string.ascii_lowercase + string.digits + string.ascii_uppercase
-    STR_CHARS_NO_UPPER = string.ascii_lowercase + string.digits + "!@#$%^&*"
-    STR_CHARS_NO_LOWER = string.ascii_uppercase + string.digits + "!@#$%^&*"
-    STR_CHARS_NO_DIGITS = string.ascii_lowercase + string.ascii_uppercase + "!@#$%^&*"
-    STR_CHARS_NO_SPECIAL_NO_UPPER = string.ascii_lowercase + string.digits
-    STR_CHARS_NO_SPECIAL_NO_LOWER = string.ascii_uppercase + string.digits
-    STR_CHARS_NO_SPECIAL_NO_DIGITS = string.ascii_lowercase + string.ascii_uppercase
-    INT_CHARS = string.digits
-    BOOL_CHARS = ["true", "false"]
     MIN_LENGTH = 1
     MAX_LENGTH = 100
 
@@ -22,7 +13,7 @@ class RandomGenerator:
         return random.randint(self.MIN_LENGTH, self.MAX_LENGTH)
 
     def generate_random_bool(self) -> bool:
-        return random.choice(self.BOOL_CHARS)
+        return random.choice(BOOL_CHARS)
 
     def generate_random_string(self, length: int | None = None, chars: str = STR_CHARS) -> str:
         if length is None:
@@ -37,7 +28,7 @@ class RandomGenerator:
     def generate_random_float(self, length: int | None = None, chars: str = INT_CHARS) -> float:
         if length is None:
             length = self.generate_random_length()
-        point = random.randint(1, length - 1)
+        point = random.randint(1, length)
         return float(''.join(random.choice(chars) for _ in range(point)) + '.' + ''.join(random.choice(chars) for _ in range(length - point)))
 
     def generate_random_list(self, length: int | None = None, obj: any = None) -> list[any]:
@@ -46,33 +37,35 @@ class RandomGenerator:
             length = self.generate_random_length()
         for _ in range(length):
             if isinstance(obj, str):
-                value.append(self.generate_random_string(None, self.STR_CHARS_NO_SPECIAL))
+                value.append(self.generate_random_string(None, STR_CHARS_NO_SPECIAL))
             elif isinstance(obj, int):
-                value.append(self.generate_random_int(None, self.INT_CHARS))
+                value.append(self.generate_random_int(None, INT_CHARS))
             elif isinstance(obj, float):
-                value.append(self.generate_random_float(None, self.INT_CHARS))
+                value.append(self.generate_random_float(None, INT_CHARS))
             elif isinstance(obj, list):
                 value.append(self.generate_random_list(None, obj[0]))
             elif isinstance(obj, dict):
                 value.append(self.generate_random_dict(obj))
+            elif isinstance(obj, bool):
+                value.append(self.generate_random_bool())
         return value
 
     def generate_random_dict(self, obj: dict[str, any]) -> dict[str, any]:
-        value = {}
+        dic = {}
         for key, value in obj.items():
             if isinstance(value, str):
-                value[key] = self.generate_random_string(None, self.STR_CHARS_NO_SPECIAL)
+                dic[key] = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
             elif isinstance(value, int):
-                value[key] = self.generate_random_int(None, self.INT_CHARS)
+                dic[key] = self.generate_random_int(None, INT_CHARS)
             elif isinstance(value, float):
-                value[key] = self.generate_random_float(None, self.INT_CHARS)
+                dic[key] = self.generate_random_float(None, INT_CHARS)
             elif isinstance(value, list):
-                value[key] = self.generate_random_list(None, value[0])
+                dic[key] = self.generate_random_list(None, value[0])
             elif isinstance(value, dict):
-                value[key] = self.generate_random_dict(value)
+                dic[key] = self.generate_random_dict(value)
             elif isinstance(value, bool):
-                value[key] = self.generate_random_bool()
-        return value
+                dic[key] = self.generate_random_bool()
+        return dic
 
     def sample_from_list(self, length: int | None = None, population: list[any] = None) -> any:
         """
