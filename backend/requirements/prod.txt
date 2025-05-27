@@ -1,18 +1,18 @@
 # Everything needed in production
 
-Werkzeug
+Werkzeug~=2.0.0
 SQLAlchemy==1.1.9
 Flask_Caching
-Flask_SQLAlchemy==2.2
+Flask_SQLAlchemy
 click
-marshmallow
+marshmallow==3.20.2
 Flask_Bcrypt
 flask_apispec
 Flask
-PyJWT
-Flask-JWT-Extended
+PyJWT==1.6.1
+Flask-JWT-Extended==3.13.1
 unicode_slugify
-psycopg2
+psycopg2-binary
 Flask-Migrate
 gunicorn
 Flask-Cors
