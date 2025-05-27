@@ -80,44 +80,55 @@ class AdaptiveRandomGenerator:
     # Objects
 
     def generate_random_list(self, length: int | None = None, obj: any = None):
+        generator_str = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
+        generator_int = self.generate_random_int(None, INT_CHARS)
+        generator_float = self.generate_random_float(None, INT_CHARS)
+        generator_list = self.generate_random_list(None, obj[0])
+        generator_dict = self.generate_random_dict(obj)
+        generator_bool = self.generate_random_bool()
+
         while True:
             if length is None:
                 length = self.generate_random_length()  
 
             if isinstance(obj, str):
-                generator = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
-                yield [next(generator) for _ in range(length)]
+                yield [next(generator_str) for _ in range(length)]
             elif isinstance(obj, int):
-                generator = self.generate_random_int(None, INT_CHARS)
-                yield [next(generator) for _ in range(length)]
+                yield [next(generator_int) for _ in range(length)]
             elif isinstance(obj, float):
-                generator = self.generate_random_float(None, INT_CHARS)
-                yield [next(generator) for _ in range(length)]
+                yield [next(generator_float) for _ in range(length)]
             elif isinstance(obj, list):
-                generator = self.generate_random_list(None, obj[0])
-                yield [next(generator) for _ in range(length)]
+                yield [next(generator_list) for _ in range(length)]
             elif isinstance(obj, dict):
-                generator = self.generate_random_dict(None, obj)
-                yield [next(generator) for _ in range(length)]
+                yield [next(generator_dict) for _ in range(length)]
+            elif isinstance(obj, bool):
+                yield [next(generator_bool) for _ in range(length)]
             else:
                 yield []
     
     def generate_random_dict(self, obj: dict[str, any]):
+        generator_str = self.generate_random_string(None, STR_CHARS_NO_SPECIAL)
+        generator_int = self.generate_random_int(None, INT_CHARS)
+        generator_float = self.generate_random_float(None, INT_CHARS)
+        generator_list = self.generate_random_list(None, obj[0])
+        generator_dict = self.generate_random_dict(obj)
+        generator_bool = self.generate_random_bool()
+
         while True:
             dic = {}
             for key, value in obj.items():
                 if isinstance(value, str):
-                    dic[key] = next(self.generate_random_string(None, STR_CHARS_NO_SPECIAL))
+                    dic[key] = next(generator_str)
                 elif isinstance(value, int):
-                    dic[key] = next(self.generate_random_int(None, INT_CHARS))
+                    dic[key] = next(generator_int)
                 elif isinstance(value, float):
-                    dic[key] = next(self.generate_random_float(None, INT_CHARS))
+                    dic[key] = next(generator_float)
                 elif isinstance(value, list):
-                    dic[key] = next(self.generate_random_list(None, value[0]))
+                    dic[key] = next(generator_list)
                 elif isinstance(value, dict):
-                    dic[key] = next(self.generate_random_dict(value))
+                    dic[key] = next(generator_dict)
                 elif isinstance(value, bool):
-                    dic[key] = next(self.generate_random_bool())
+                    dic[key] = next(generator_bool)
             yield dic
 
 

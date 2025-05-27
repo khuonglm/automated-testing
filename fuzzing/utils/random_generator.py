@@ -46,6 +46,8 @@ class RandomGenerator:
                 value.append(self.generate_random_list(None, obj[0]))
             elif isinstance(obj, dict):
                 value.append(self.generate_random_dict(obj))
+            elif isinstance(obj, bool):
+                value.append(self.generate_random_bool())
         return value
 
     def generate_random_dict(self, obj: dict[str, any]) -> dict[str, any]:
