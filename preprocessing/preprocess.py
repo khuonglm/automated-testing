@@ -124,6 +124,20 @@ def api_extraction() -> list[str]:
     with open(os.path.join(curr_dir, "docs", "output", "api_extracted.json"), "w") as f:
         f.write(json.dumps(api_extracted, indent=4))
 
+def bfs(api: str, graph2: dict[str, list[str]]) -> None:
+    queue = [api]
+    visited = set([api])
+    while queue:
+        top = queue.pop(0)
+        for i in graph2[top]:
+            if i not in visited:
+                queue.append(i)
+                visited.add(i)
+    visited.remove(api)
+    visited = list(visited)
+    visited.sort()
+    return visited
+
 def graph_generation() -> dict[str, list[dict[str, str]]]:
     """
     Generate the graph from the API documentation.
@@ -131,28 +145,36 @@ def graph_generation() -> dict[str, list[dict[str, str]]]:
     with open(os.path.join(curr_dir, "docs", "api_documentation.json"), "r") as f:
         api_documentation = json.load(f)
 
-    with open(os.path.join(curr_dir, "docs", "output", "dependencies.json"), "r") as f:
-        dependencies = json.load(f)
+    with open(os.path.join(curr_dir, "docs", "output", "relations_2025-06-01 13:38:34.json"), "r") as f:
+        relations = json.load(f)
     
     graph = {}
-    for i, dependency in enumerate(dependencies):
-        dependency = dependencies[str(i)]
-        if dependency["dependent"] == "yes":
-            api1 = dependency["relation"].split(" ")[0]
-            api2 = dependency["relation"].split(" ")[-1]
-            if api1 not in graph:
-                graph[api1] = []
-            graph[api1].append({
-                "api": api2,
-                "related_fields": dependency["related fields"]
-            })
+    graph2 = {}
+    for i, relation in enumerate(relations):
+        relation = relations[str(i)]
+        for r in relation:
+            if r["related"]:
+                api1 = r["relation"]["from"]
+                api2 = r["relation"]["to"]
+                if api1 not in graph:
+                    graph[api1] = []
+                    graph2[api1] = []
+                graph[api1].append({
+                    "api": api2,
+                    "related_fields": r["fieldMappings"] if "fieldMappings" in r else []
+                })
+            graph2[api1].append(api2)
     
-    print(json.dumps(graph, indent=4))
+    # print(json.dumps(graph, indent=4))
+    print(graph2)
+
+    for i in api_documentation["APIs"]:
+        print(f" {i['id']} -> {bfs(str(i['id']), graph2)}")
 
     return graph
 
 if __name__ == "__main__":
     # dependency_collection("dependency")
-    dependency_collection("relation")
+    # dependency_collection("relation")
     # api_extraction()
-    # graph_generation()
+    graph_generation()
