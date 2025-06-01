@@ -187,13 +187,15 @@ class Fuzzer:
     def __init__(self, apis):
         self.apis = apis
 
-    def fuzz_api(api, random_generator = RandomGenerator()):
+    def fuzz_api(self, api, random_generator = RandomGenerator()):
         if api["method"] not in ["GET", "POST", "PUT", "DELETE", "PATCH"]:
             raise ValueError("Invalid method {method}!")  
         method = api["method"].lower()
         path_params_schema = api["path_parameters"]
         query_params_schema = api["query_parameters"]
         url_template = api["url"]
+        body_schema = api["body"]
+        headers_schema = api["headers"]
 
         while True:
             url = url_template
@@ -215,12 +217,49 @@ class Fuzzer:
                         query_params[param] = random_generator.generate_random_string()
                     case "<integer>":
                         query_params[param] = random_generator.generate_random_int()
-            
-                
-            pass
+             
 
-    def call_api(self, method: str, url: str, headers, body, baseurl=""):
-        url = path.join(baseurl, url)
+            # Fuzz a dictionary. 
+            # Example: body_schema = {
+            #     "article": {
+            #         "slug": "<string>",
+            #         "date": {
+            #             "month": "<string>",
+            #             "day": "<integer>",
+            #         }
+            #     },
+            #     "content": "<string>"
+            # }
+            def fill_body(schema, current): 
+                for param in schema:
+                    value = schema[param]
+                    if isinstance(value, dict):
+                        current[param] = {}
+                        fill_body(value, current[param])
+                    else:    
+                        match value:
+                            case "<string>":
+                                current[param] = random_generator.generate_random_string()
+                            case "<integer>":
+                                current[param] = random_generator.generate_random_int()
+
+            body = {}
+            fill_body(body_schema, body)
+
+             # Populate headers parameters
+            headers = {}
+            for param in headers_schema:
+                value = headers_schema[param]
+                match value:
+                    case "Token <token>":
+                        headers[param] = "Token " + random_generator.generate_random_string()
+                    case _:
+                        headers[param] = value
+
+            self.call_api(method, url, headers=headers, body=body)         
+
+    def call_api(self, method: str, url: str, headers, body, baseurl="http://localhost:5000"):
+        url = path.join(baseurl, url.lstrip('/'))
         request = getattr(requests, method)
         return request(url, headers=headers, data=body)
 
@@ -233,6 +272,6 @@ if __name__ == '__main__':
     sequencer = APISequencer(example_graph, example_apis)
     sequencer.sequence("dfs")
     fuzzer = Fuzzer(example_apis)
-    print(fuzzer.call_api(example_apis[0], "http://localhost:5000"))
+    print(fuzzer.fuzz_api(example_apis[2]))
+    # print(fuzzer.call_api(example_apis[0], "http://localhost:5000"))
 
-    
