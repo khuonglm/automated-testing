@@ -1,0 +1,22 @@
+{
+    "0": [
+        {
+            "related": "yes",
+            "relation": "API 1 \u2192 API 0",
+            "related fields": [
+                {
+                    "field_name1": "user/email",
+                    "field_name2": "user/email",
+                    "where_to_take": "request_body",
+                    "where_to_put": "request_body"
+                },
+                {
+                    "field_name1": "user/password",
+                    "field_name2": "user/password",
+                    "where_to_take": "request_body",
+                    "where_to_put": "request_body"
+                }
+            ]
+        }
+    ]
+}

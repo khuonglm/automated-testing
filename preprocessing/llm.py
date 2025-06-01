@@ -1,4 +1,5 @@
 import os
+import time
 import google.generativeai as genai
 from tenacity import (
     retry,
@@ -16,9 +17,9 @@ class ModelArguments:
     # Sampling temperature
     temperature: float = 0.1
     # Sampling top-p
-    top_p: float = 0.5
+    top_p: float = 0.85
 
-    def __init__(self, model_name: str, temperature: float = 0.1, top_p: float = 0.5):
+    def __init__(self, model_name: str, temperature: float = 0.1, top_p: float = 0.85):
         self.model_name = model_name
         self.temperature = temperature
         self.top_p = top_p
@@ -64,15 +65,14 @@ class GoogleModel(BaseModel):
 
     @retry(
         wait=wait_random_exponential(min=1, max=15),
-        reraise=True,
         stop=stop_after_attempt(_MAX_RETRIES),
-        retry=retry_if_not_exception_type((RuntimeError)),
     )
     def query(self, system_instruction: str, user_messages: str) -> str:
         """
         Query the Google API
         """
         try:
+            time.sleep(1)
             model = genai.GenerativeModel(
                 model_name=self.args.model_name,
                 generation_config=genai.GenerationConfig(

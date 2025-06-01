@@ -1,0 +1,280 @@
+User Prompt: Based on the reasoning below, determine whether there is a directional relationship between APIs `0` and `1` using the definition provided:
+Return the result in the required JSON format.
+
+API 0:
+{
+    "samples": [
+        {
+            "id": 0,
+            "request": "curl -X POST http://localhost:5000/api/users/login -H \"Content-Type: application/json\" -d '{\"user\": {\"email\": \"nakaist@kaist.ac.kr\", \"password\": \"nhatanh0104\"}}'",
+            "response": {
+                "user": {
+                    "bio": null,
+                    "createdAt": "2024-11-10T12:39:09.507917",
+                    "email": "nakaist@kaist.ac.kr",
+                    "image": null,
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDMyMjcsIm5iZiI6MTczMTI0MzIyNywianRpIjoiNTViOTNjNTEtMjVlMC00MDEwLThjMGQtOTkyZGJlMzEwYjRjIiwiZXhwIjo4ODEzMTI0MzIyNywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.uyD9s7KKuxZK5H1hMpIVw9BxE_JjotPELPVYb9jss24",
+                    "updatedAt": "2024-11-10T12:39:09.507923",
+                    "username": "hnatahn"
+                }
+            }
+        },
+        {
+            "id": 1,
+            "request": "curl -X POST http://localhost:5000/api/users/login -H \"Content-Type: application/json\" -d '{\"user\": {\"email\": \"nakaist@kaist.ac.kr\", \"password\": \"nhatanh01041\"}}'",
+            "response": {
+                "errors": {
+                    "body": [
+                        "User not found"
+                    ]
+                }
+            }
+        }
+    ],
+    "id": 0,
+    "method": "POST",
+    "endpoint": "/api/users/login",
+    "description": "User login. Return an User if the email and password matched any record in the data. Otherwise return \"User not found\".\n"
+}
+
+API 1:
+{
+    "samples": [
+        {
+            "id": 0,
+            "request": "curl -X POST http://localhost:5000/api/users -H \"Content-Type: application/json\" -d '{\"user\": {\"username\": \"hnatahn\", \"email\": \"nakaist@kaist.ac.kr\", \"password\": \"nhatanh0104\"}}'",
+            "response": {
+                "user": {
+                    "bio": null,
+                    "createdAt": "2024-11-10T12:39:09.507917",
+                    "email": "nakaist@kaist.ac.kr",
+                    "image": null,
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDIzNDksIm5iZiI6MTczMTI0MjM0OSwianRpIjoiMjZjN2Q1MjItMThlNC00YzVkLThlMWQtNDE5ODNjYTkzZjFjIiwiZXhwIjo4ODEzMTI0MjM0OSwiaWRlbnRpdHkiOjIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.rLWvkb7wILaLIiy0mQhqgbjfsqt7LiVSUmVzKeGHMlM",
+                    "updatedAt": "2024-11-10T12:39:09.507923",
+                    "username": "hnatahn"
+                }
+            }
+        },
+        {
+            "id": 1,
+            "request": "curl -X POST http://localhost:5000/api/users -H \"Content-Type: application/json\" -d '{\"user\": {\"username\": \"hnatahn\", \"email\": \"nakaist@kaist.ac.kr\", \"password\": \"nhatanh0104\"}}'",
+            "response": {
+                "errors": {
+                    "body": [
+                        "User already registered"
+                    ]
+                }
+            }
+        }
+    ],
+    "id": 1,
+    "method": "POST",
+    "endpoint": "/api/users",
+    "description": "Register a new user. No authentication required, will return the newly created User. Required fields: username, email, password\n"
+}
+
+Reasoning:
+Here's an analysis of the relationship between API X (POST /api/users/login) and API Y (POST /api/users):
+
+1.  **Parse API Signatures and Purpose:**
+    *   **API X (POST /api/users/login):**  This API is for user login. It takes an email and password as input and, upon successful authentication, returns a user object including a token.
+    *   **API Y (POST /api/users):** This API is for user registration. It takes a username, email, and password as input and returns the newly created user object.
+
+2.  **Check for State Dependency:**
+    *   API X does not directly create any state that API Y *requires* to function. API X attempts to log in an existing user. API Y creates a new user.
+
+3.  **Check for Data Dependency:**
+    *   API Y does not directly use any data returned by API X. API X returns a token, but API Y does not need it.
+
+4.  **Check for Field Reuse:**
+    *   Both APIs share the fields "email" and "password" in their request bodies. The values for these fields must be consistent for the APIs to function correctly in the context of user management. Specifically, the "email" and "password" provided to API Y (registration) must match the "email" and "password" used in a subsequent call to API X (login).
+
+5.  **Check for Business-Logic Dependency:**
+    *   There is a business-logic dependency. A user must be registered (API Y) *before* they can log in (API X). You cannot log in with an account that doesn't exist.
+
+6.  **Summarize:**
+    *   API X and API Y are related due to **Field Reuse** and **Business-Logic Dependency**.
+    *   **Field Reuse:** Both APIs use the "email" and "password" fields. The values for these fields must be consistent for the APIs to function correctly.
+    *   **Business-Logic Dependency:** API Y (registration) must be called before API X (login) can be successfully invoked for a given user.
+
+Response: ```json
+{
+  "related": true,
+  "relation": {
+    "from": "0",
+    "to": "1"
+  },
+  "fieldMappings": [
+    {
+      "source": {
+        "api": "0",
+        "phase": "request",
+        "location": "body",
+        "fieldPath": "user.email"
+      },
+      "target": {
+        "api": "1",
+        "phase": "request",
+        "location": "body",
+        "fieldPath": "user.email"
+      }
+    },
+    {
+      "source": {
+        "api": "0",
+        "phase": "request",
+        "location": "body",
+        "fieldPath": "user.password"
+      },
+      "target": {
+        "api": "1",
+        "phase": "request",
+        "location": "body",
+        "fieldPath": "user.password"
+      }
+    }
+  ]
+}
+```
+
+User Prompt: Based on the reasoning below, determine whether there is a directional relationship between APIs `1` and `0` using the definition provided:
+Return the result in the required JSON format.
+
+API 1:
+{
+    "samples": [
+        {
+            "id": 0,
+            "request": "curl -X POST http://localhost:5000/api/users -H \"Content-Type: application/json\" -d '{\"user\": {\"username\": \"hnatahn\", \"email\": \"nakaist@kaist.ac.kr\", \"password\": \"nhatanh0104\"}}'",
+            "response": {
+                "user": {
+                    "bio": null,
+                    "createdAt": "2024-11-10T12:39:09.507917",
+                    "email": "nakaist@kaist.ac.kr",
+                    "image": null,
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDIzNDksIm5iZiI6MTczMTI0MjM0OSwianRpIjoiMjZjN2Q1MjItMThlNC00YzVkLThlMWQtNDE5ODNjYTkzZjFjIiwiZXhwIjo4ODEzMTI0MjM0OSwiaWRlbnRpdHkiOjIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.rLWvkb7wILaLIiy0mQhqgbjfsqt7LiVSUmVzKeGHMlM",
+                    "updatedAt": "2024-11-10T12:39:09.507923",
+                    "username": "hnatahn"
+                }
+            }
+        },
+        {
+            "id": 1,
+            "request": "curl -X POST http://localhost:5000/api/users -H \"Content-Type: application/json\" -d '{\"user\": {\"username\": \"hnatahn\", \"email\": \"nakaist@kaist.ac.kr\", \"password\": \"nhatanh0104\"}}'",
+            "response": {
+                "errors": {
+                    "body": [
+                        "User already registered"
+                    ]
+                }
+            }
+        }
+    ],
+    "id": 1,
+    "method": "POST",
+    "endpoint": "/api/users",
+    "description": "Register a new user. No authentication required, will return the newly created User. Required fields: username, email, password\n"
+}
+
+API 0:
+{
+    "samples": [
+        {
+            "id": 0,
+            "request": "curl -X POST http://localhost:5000/api/users/login -H \"Content-Type: application/json\" -d '{\"user\": {\"email\": \"nakaist@kaist.ac.kr\", \"password\": \"nhatanh0104\"}}'",
+            "response": {
+                "user": {
+                    "bio": null,
+                    "createdAt": "2024-11-10T12:39:09.507917",
+                    "email": "nakaist@kaist.ac.kr",
+                    "image": null,
+                    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDMyMjcsIm5iZiI6MTczMTI0MzIyNywianRpIjoiNTViOTNjNTEtMjVlMC00MDEwLThjMGQtOTkyZGJlMzEwYjRjIiwiZXhwIjo4ODEzMTI0MzIyNywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.uyD9s7KKuxZK5H1hMpIVw9BxE_JjotPELPVYb9jss24",
+                    "updatedAt": "2024-11-10T12:39:09.507923",
+                    "username": "hnatahn"
+                }
+            }
+        },
+        {
+            "id": 1,
+            "request": "curl -X POST http://localhost:5000/api/users/login -H \"Content-Type: application/json\" -d '{\"user\": {\"email\": \"nakaist@kaist.ac.kr\", \"password\": \"nhatanh01041\"}}'",
+            "response": {
+                "errors": {
+                    "body": [
+                        "User not found"
+                    ]
+                }
+            }
+        }
+    ],
+    "id": 0,
+    "method": "POST",
+    "endpoint": "/api/users/login",
+    "description": "User login. Return an User if the email and password matched any record in the data. Otherwise return \"User not found\".\n"
+}
+
+Reasoning:
+Here's an analysis of the relationship between API X (POST /api/users) and API Y (POST /api/users/login):
+
+1.  **State Dependency:**
+    *   API X, which is `/api/users`, registers a new user. This action creates a new user record in the system's data store.
+    *   API Y, which is `/api/users/login`, attempts to log in a user. It checks if the provided email and password match an existing user record.
+    *   Therefore, API X *must* be called before API Y can succeed for a new user. Without the user record created by X, Y will fail.
+
+2.  **Data Dependency:**
+    *   API X does not directly provide data that API Y consumes in its request. However, the email and password provided in the request body of API X are *reused* by API Y.
+    *   API Y's response includes a `token` field, which could be used by other APIs. However, this token is not directly dependent on API X.
+
+3.  **Field Reuse:**
+    *   Both API X and API Y share the fields `email` and `password` in their request bodies. The values for these fields must match for API Y to successfully log in a user created by API X.
+
+4.  **Business-Logic Dependency:**
+    *   Yes, there is a business-logic dependency. In a typical user authentication flow, a user must first register (API X) before they can log in (API Y).
+
+5.  **Summarize:**
+
+    API X (POST /api/users) and API Y (POST /api/users/login) are related due to:
+
+    *   **State Dependency:** API X creates the user account, which is a prerequisite for API Y to successfully authenticate the user.
+    *   **Field Reuse:** Both APIs use the `email` and `password` fields, and the values must match for login to succeed.
+    *   **Business-Logic Dependency:** Registering a user (X) is a necessary step before logging in (Y).
+
+Response: ```json
+{
+  "related": true,
+  "relation": {
+    "from": "1",
+    "to": "0"
+  },
+  "fieldMappings": [
+    {
+      "source": {
+        "api": "1",
+        "phase": "request",
+        "location": "body",
+        "fieldPath": "user.email"
+      },
+      "target": {
+        "api": "0",
+        "phase": "request",
+        "location": "body",
+        "fieldPath": "user.email"
+      }
+    },
+    {
+      "source": {
+        "api": "1",
+        "phase": "request",
+        "location": "body",
+        "fieldPath": "user.password"
+      },
+      "target": {
+        "api": "0",
+        "phase": "request",
+        "location": "body",
+        "fieldPath": "user.password"
+      }
+    }
+  ]
+}
+```
+

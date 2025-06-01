@@ -1,0 +1,669 @@
+{
+    "0": [
+        {
+            "dependent": "yes",
+            "relation": "API 0 depends on API 1",
+            "related fields": [
+                {
+                    "email": "email",
+                    "where_to_take": "request_body",
+                    "where_to_put": "request_body"
+                },
+                {
+                    "password": "password",
+                    "where_to_take": "request_body",
+                    "where_to_put": "request_body"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 2 depends on API 0",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 3 depends on API 0",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 5 depends on API 0",
+            "related fields": [
+                {
+                    "field_name1": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 6 depends on API 0",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 8 depends on API 0",
+            "related fields": [
+                {
+                    "field_name1": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 10 depends on API 0",
+            "related fields": [
+                {
+                    "token": "Authorization",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 11 depends on API 0",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 12 depends on API 0",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 13 depends on API 0",
+            "related fields": [
+                {
+                    "field_name1": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 15 depends on API 0",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 16 depends on API 0",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 17 depends on API 0",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        }
+    ],
+    "1": [
+        {
+            "dependent": "yes",
+            "relation": "API 3 depends on API 1",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 3 depends on API 1",
+            "related fields": [
+                {
+                    "token": "Authorization",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 4 depends on API 1",
+            "related fields": [
+                {
+                    "username": "username",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 5 depends on API 1",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 8 depends on API 1",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 10 depends on API 1",
+            "related fields": [
+                {
+                    "token": "Authorization",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 11 depends on API 1",
+            "related fields": [
+                {
+                    "field_name1": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 12 depends on API 1",
+            "related fields": [
+                {
+                    "field_name1": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 17 depends on API 1",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        }
+    ],
+    "2": [
+        {
+            "dependent": "yes",
+            "relation": "API 3 depends on API 2",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 4 depends on API 2",
+            "related fields": [
+                {
+                    "username": "username",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 5 depends on API 2",
+            "related fields": []
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 8 depends on API 2",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 11 depends on API 2",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 16 depends on API 2",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 17 depends on API 2",
+            "related fields": [
+                {
+                    "token": "token",
+                    "where_to_take": "output",
+                    "where_to_put": "header"
+                }
+            ]
+        }
+    ],
+    "4": [
+        {
+            "dependent": "yes",
+            "relation": "API 6 depends on API 4",
+            "related fields": [
+                {
+                    "username": "username",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        }
+    ],
+    "5": [
+        {
+            "dependent": "yes",
+            "relation": "API 6 depends on API 5",
+            "related fields": [
+                {
+                    "username": "username",
+                    "where_to_take": "path_variable",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 7 depends on API 5",
+            "related fields": []
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 8 depends on API 5",
+            "related fields": []
+        }
+    ],
+    "6": [
+        {
+            "dependent": "yes",
+            "relation": "API 8 depends on API 6",
+            "related fields": []
+        }
+    ],
+    "7": [
+        {
+            "dependent": "yes",
+            "relation": "API 9 depends on API 7",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 12 depends on API 7",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 13 depends on API 7",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 14 depends on API 7",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 15 depends on API 7",
+            "related fields": [
+                {
+                    "slug": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 16 depends on API 7",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 17 depends on API 7",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        }
+    ],
+    "8": [
+        {
+            "dependent": "yes",
+            "relation": "API 9 depends on API 8",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 11 depends on API 8",
+            "related fields": [
+                {
+                    "slug": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 14 depends on API 8",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 17 depends on API 8",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        }
+    ],
+    "9": [
+        {
+            "dependent": "yes",
+            "relation": "API 9 depends on API 10",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 11 depends on API 9",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 13 depends on API 9",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 14 depends on API 9",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 15 depends on API 9",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 17 depends on API 9",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        }
+    ],
+    "10": [
+        {
+            "dependent": "yes",
+            "relation": "API 11 depends on API 10",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 12 depends on API 10",
+            "related fields": []
+        },
+        {
+            "dependent": "yes",
+            "relation": "13 depends on 10",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 14 depends on API 10",
+            "related fields": [
+                {
+                    "slug": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "16 depends on 10",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 17 depends on API 10",
+            "related fields": [
+                {
+                    "slug": "slug",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        },
+        {
+            "dependent": "yes",
+            "relation": "API 10 depends on API 18",
+            "related fields": []
+        }
+    ],
+    "12": [
+        {
+            "dependent": "yes",
+            "relation": "API 14 depends on API 12",
+            "related fields": [
+                {
+                    "field_name1": "slug",
+                    "where_to_take": "path_variable",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        }
+    ],
+    "13": [
+        {
+            "dependent": "yes",
+            "relation": "API 15 depends on API 13",
+            "related fields": []
+        }
+    ],
+    "14": [
+        {
+            "dependent": "yes",
+            "relation": "API 15 depends on API 14",
+            "related fields": [
+                {
+                    "field_name1": "id",
+                    "where_to_take": "output",
+                    "where_to_put": "path_variable"
+                }
+            ]
+        }
+    ],
+    "16": [
+        {
+            "dependent": "yes",
+            "relation": "API 16 depends on API 17",
+            "related fields": []
+        }
+    ]
+}

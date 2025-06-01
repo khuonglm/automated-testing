@@ -1,0 +1,36 @@
+Below is the full documentation for all the APIs in your system.  
+You can reference any part of these docs in your analysis of API X vs. API Y.
+
+---
+
+**Full API Documentation**  
+{api_documentation}
+
+---
+
+**API X with ID {id1} Definition**  
+{api1}
+
+**API Y with ID {id2} Definition**  
+{api2}
+
+---
+
+**Instructions**  
+1. Identify any **State Dependency**:  
+   - Does invoking API X create or modify data/state that API Y requires?  
+   - Show which part of X’s response or side effect Y depends on (if any).  
+2. Identify any **Data Dependency**:  
+   - Does API Y consume IDs, tokens, credentials, or other data returned by X’s response?  
+   - Reference exact field names (e.g., `"userId"`, `"token"`) if relevant.  
+3. Identify any **Field Reuse**:  
+   - Are there logically equivalent fields (for example, both X and Y use “email” and “password”) that must match?  
+   - Be precise about whether the field is produced by X or simply required by both X and Y.  
+4. Identify any **Business‐Logic Dependency**:  
+   - Even if there is no direct data or state transfer, is the domain logic such that X must run before Y can make sense?  
+   - Explain the real‐world scenario if applicable (e.g., “you must register before you can log in”).  
+5. **Summarize**:  
+   - Which of the above conditions (1–4) make API X and API Y related?  
+   - If none apply, state “No relationship detected” and briefly justify.
+
+Please provide your detailed, step‐by‐step analysis and a concise conclusion at the end.

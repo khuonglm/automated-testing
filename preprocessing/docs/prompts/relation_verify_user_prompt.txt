@@ -1,0 +1,17 @@
+API X:
+{api1}
+
+API Y:
+{api2}
+
+Here is the step-by-step reasoning analysis between API X and API Y:
+{reasoning}
+
+And here is the JSON output generated based on that reasoning:
+{json_output}
+
+Please validate both:
+1. That the JSON structure strictly follows the required schema.
+2. That the JSON correctly and completely reflects the dependencies or lack of relationship as explained in the reasoning.
+
+Return your response using the exact output format described in the system prompt.

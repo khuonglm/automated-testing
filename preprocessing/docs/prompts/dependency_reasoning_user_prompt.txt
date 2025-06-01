@@ -1,0 +1,12 @@
+You are given detailed API documentation in JSON format. Each API entry includes its purpose, endpoints, methods, input/output parameters, descriptions, and sample requests/responses.
+
+Analyze whether API `{id1}` depends on API `{id2}` or vice versa.
+
+Compare their fields, behavior, descriptions, and example data. Also evaluate the logical flow of actions (e.g., whether one API must be used before the other for the system to function correctly).
+
+Do not return the final decision — only provide detailed step-by-step reasoning.
+
+API Documentation:
+{api_documentation}
+
+Let's think step by step.
