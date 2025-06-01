@@ -1,5 +1,5 @@
-from ..utils.random_generator import *
-from ..utils.adaptive_random_generator import *
+from fuzzing.utils.random_generator import *
+from fuzzing.utils.adaptive_random_generator import *
 import random
 
 random_generator = RandomGenerator()
