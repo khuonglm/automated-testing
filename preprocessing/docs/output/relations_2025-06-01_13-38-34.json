@@ -1,0 +1,3567 @@
+{
+    "0": [
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "2"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "2",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "3"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "3",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "5"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "5",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "6"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "6",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "8"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "8",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "10"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "13"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "17"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        }
+    ],
+    "1": [
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "0"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    },
+                    "target": {
+                        "api": "0",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.password"
+                    },
+                    "target": {
+                        "api": "0",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.password"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "2"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    },
+                    "target": {
+                        "api": "2",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.username"
+                    },
+                    "target": {
+                        "api": "2",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.username"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "3"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    },
+                    "target": {
+                        "api": "3",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "4"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.username"
+                    },
+                    "target": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<username>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    },
+                    "target": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "profile.email"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "5"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.username"
+                    },
+                    "target": {
+                        "api": "5",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<username>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "7"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "author.email"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.username"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "author.username"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "10"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "1",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "13"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "1",
+                "to": "16"
+            },
+            "fieldMappings": []
+        }
+    ],
+    "2": [
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "2"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "2",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "2",
+                "to": "3"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "2",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "3",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "2",
+                "to": "5"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "2",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "5",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "2",
+                "to": "7"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "2",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "2",
+                "to": "8"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "2",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "8",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "2",
+                "to": "10"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "2",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "2",
+                "to": "13"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "2",
+                "to": "16"
+            }
+        }
+    ],
+    "3": [
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "0"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "3",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    },
+                    "target": {
+                        "api": "0",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "2"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "4"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "5"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "6"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.username"
+                    },
+                    "target": {
+                        "api": "6",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<username>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "7"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.username"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "author"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "author"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "8"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.username"
+                    },
+                    "target": {
+                        "api": "8",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "author.username"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.email"
+                    },
+                    "target": {
+                        "api": "8",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "author.email"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "10"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "13"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "3",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "3",
+                "to": "17"
+            },
+            "fieldMappings": []
+        }
+    ],
+    "4": [
+        {
+            "related": true,
+            "relation": {
+                "from": "4",
+                "to": "5"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    },
+                    "target": {
+                        "api": "5",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "4",
+                "to": "6"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    },
+                    "target": {
+                        "api": "6",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "4",
+                "to": "8"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "4",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "profile.username"
+                    },
+                    "target": {
+                        "api": "8",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "author.username"
+                    }
+                }
+            ]
+        }
+    ],
+    "5": [
+        {
+            "related": true,
+            "relation": {
+                "from": "5",
+                "to": "4"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "5",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    },
+                    "target": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "5",
+                "to": "6"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "5",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    },
+                    "target": {
+                        "api": "6",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "5",
+                "to": "8"
+            }
+        }
+    ],
+    "6": [
+        {
+            "related": true,
+            "relation": {
+                "from": "6",
+                "to": "4"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "6",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    },
+                    "target": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "username"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "6",
+                "to": "5"
+            }
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "6",
+                "to": "8"
+            }
+        }
+    ],
+    "7": [
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "7"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "7",
+                "to": "4"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[].author.username"
+                    },
+                    "target": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<username>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "7",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[].slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "7",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": ""
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].title"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.title"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].description"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.description"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].body"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.body"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "7",
+                "to": "13"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[].slug"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "7",
+                "to": "14"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[].slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "7",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[].slug"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "7",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[3].slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "7",
+                "to": "17"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "7",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[3].slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        }
+    ],
+    "8": [
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "8"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "8",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "4"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].author.username"
+                    },
+                    "target": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<username>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].author.username"
+                    },
+                    "target": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<username>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].author.username"
+                    },
+                    "target": {
+                        "api": "4",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<username>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "5"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "6"
+            }
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "10"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "13"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "14"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "8",
+                "to": "17"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[0].slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[1].slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "8",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "articles[2].slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        }
+    ],
+    "9": [
+        {
+            "related": true,
+            "relation": {
+                "from": "9",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "9",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "9",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "9",
+                "to": "13"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "9",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "9",
+                "to": "14"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "9",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "9",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "9",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "9",
+                "to": "17"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        }
+    ],
+    "10": [
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "7"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.title"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.tagList"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "8"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.title"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.title"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.description"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.description"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.body"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.body"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "13"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "14"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "10",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "17"
+            },
+            "fieldMappings": []
+        }
+    ],
+    "11": [
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "7"
+            }
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "8"
+            }
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "11",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "13"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "11",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "14"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "11",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "11",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "11",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "11",
+                "to": "17"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "11",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        }
+    ],
+    "12": [
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "7"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "8"
+            }
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "13"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "14"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "15"
+            }
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "12",
+                "to": "17"
+            },
+            "fieldMappings": []
+        }
+    ],
+    "13": [
+        {
+            "related": true,
+            "relation": {
+                "from": "13",
+                "to": "7"
+            }
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "13",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "10",
+                "to": "13"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "13",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "13",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "13",
+                "to": "14"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "13",
+                "to": "15"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "13",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        }
+    ],
+    "14": [
+        {
+            "related": true,
+            "relation": {
+                "from": "14",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "14",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "14",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "14",
+                "to": "13"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "14",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "14",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "comments[].id"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<cid>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "14",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        }
+    ],
+    "15": [
+        {
+            "related": true,
+            "relation": {
+                "from": "15",
+                "to": "7"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "15",
+                "to": "8"
+            }
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "15",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "15",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "15",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "13",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "13",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "15",
+                "to": "14"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "14",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "comments[].id"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<cid>"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "14",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "comments[].body"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "15",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "15",
+                "to": "17"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        }
+    ],
+    "16": [
+        {
+            "related": true,
+            "relation": {
+                "from": "16",
+                "to": "7"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "16",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "slug"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "16",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.favorited"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "favorited"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "16",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.favoritesCount"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "favoritesCount"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "16",
+                "to": "8"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "16",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "16",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "16",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "16",
+                "to": "14"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "14",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "16",
+                "to": "17"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        }
+    ],
+    "17": [
+        {
+            "related": true,
+            "relation": {
+                "from": "0",
+                "to": "17"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "0",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "user.token"
+                    },
+                    "target": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "header",
+                        "fieldPath": "Authorization"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "17",
+                "to": "7"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "17",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "article.slug"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "<slug>"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "17",
+                "to": "8"
+            },
+            "fieldMappings": []
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "17",
+                "to": "9"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "9",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "17",
+                "to": "11"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "11",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "17",
+                "to": "12"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "12",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "17",
+                "to": "15"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "15",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "17",
+                "to": "16"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "17",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    },
+                    "target": {
+                        "api": "16",
+                        "phase": "request",
+                        "location": "path",
+                        "fieldPath": "slug"
+                    }
+                }
+            ]
+        }
+    ],
+    "18": [
+        {
+            "related": true,
+            "relation": {
+                "from": "18",
+                "to": "7"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[0]"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[1]"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[2]"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[3]"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[4]"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[5]"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[6]"
+                    },
+                    "target": {
+                        "api": "7",
+                        "phase": "request",
+                        "location": "query",
+                        "fieldPath": "tag"
+                    }
+                }
+            ]
+        },
+        {
+            "related": true,
+            "relation": {
+                "from": "18",
+                "to": "10"
+            },
+            "fieldMappings": [
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[0]"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.tagList[0]"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[1]"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.tagList[1]"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[2]"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.tagList[2]"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[3]"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.tagList[3]"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[4]"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.tagList[4]"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[5]"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.tagList[5]"
+                    }
+                },
+                {
+                    "source": {
+                        "api": "18",
+                        "phase": "response",
+                        "location": "body",
+                        "fieldPath": "tags[6]"
+                    },
+                    "target": {
+                        "api": "10",
+                        "phase": "request",
+                        "location": "body",
+                        "fieldPath": "article.tagList[6]"
+                    }
+                }
+            ]
+        }
+    ]
+}

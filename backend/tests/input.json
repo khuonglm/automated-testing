@@ -1,0 +1,39 @@
+[
+    {
+        "method": "POST",
+        "endpoint": "/api/users",
+        "request": {
+            "body": {
+                "user": {
+                    "username": "JohnDoe",
+                    "email": "john.doe@example.com",
+                    "password": "password"
+                }
+            }
+        }
+    },
+    {
+        "method": "POST",
+        "endpoint": "/api/users/login",
+        "request": {
+            "body": {
+                "user": {
+                    "email": "john.doe@example.com",
+                    "password": "password"
+                }
+            }
+        }
+    },
+    {
+        "method": "GET",
+        "endpoint": "/api/user",
+        "request": {
+            "headers": {
+                "Authorization": ""
+            },
+            "replaces": {
+                "headers.Authorization": "response.{0}.user.token"
+            }
+        }
+    }
+]

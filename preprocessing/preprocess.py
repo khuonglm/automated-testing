@@ -76,7 +76,7 @@ def dependency_collection(dependency_type: str) -> list[str]:
     """
     Collect the dependencies between the APIs.
     """
-    curr_time = time.strftime("%Y-%m-%d %H:%M:%S")
+    curr_time = time.strftime("%Y-%m-%d_%H-%M-%S")
     with open(os.path.join(curr_dir, "docs", "api_documentation.json"), "r") as f:
         api_documentation = json.load(f)
 
