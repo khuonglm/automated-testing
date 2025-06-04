@@ -145,7 +145,7 @@ def graph_generation() -> dict[str, list[dict[str, str]]]:
     with open(os.path.join(curr_dir, "docs", "api_documentation.json"), "r") as f:
         api_documentation = json.load(f)
 
-    with open(os.path.join(curr_dir, "docs", "output", "relations_2025-06-01 13:38:34.json"), "r") as f:
+    with open(os.path.join(curr_dir, "docs", "output", "relations_2025-06-01_13-38-34.json"), "r") as f:
         relations = json.load(f)
     
     graph = {}
@@ -158,18 +158,25 @@ def graph_generation() -> dict[str, list[dict[str, str]]]:
                 api2 = r["relation"]["to"]
                 if api1 not in graph:
                     graph[api1] = []
-                    graph2[api1] = []
+                    graph2[int(api1)] = []
                 graph[api1].append({
                     "api": api2,
                     "related_fields": r["fieldMappings"] if "fieldMappings" in r else []
                 })
-            graph2[api1].append(api2)
+            if int(api2) not in graph2[int(api1)]:
+                graph2[int(api1)].append(int(api2))
+    
+    for deps in graph2.values():
+        deps.sort()
+
+    # with open(os.path.join(curr_dir, "docs", "output", f"ref_compacted_relations_2025-06-01_13-38-34.json"), "w") as f:
+    #     f.write(json.dumps(graph2, indent=4))
     
     # print(json.dumps(graph, indent=4))
-    print(graph2)
+    # print(graph2)
 
-    for i in api_documentation["APIs"]:
-        print(f" {i['id']} -> {bfs(str(i['id']), graph2)}")
+    # for i in api_documentation["APIs"]:
+    #     print(f" {i['id']} -> {bfs(str(i['id']), graph2)}")
 
     return graph
 
@@ -178,3 +185,49 @@ if __name__ == "__main__":
     # dependency_collection("relation")
     # api_extraction()
     graph_generation()
+
+    with open(os.path.join(curr_dir, "docs", "output", f"compacted_relations_2025-06-01_13-38-34.json"), "r") as rels:
+        with open(os.path.join(curr_dir, "docs", "output", f"ref_compacted_relations_2025-06-01_13-38-34.json"), "r") as ref:
+            rels = json.load(rels)
+            ref = json.load(ref)
+            
+            TP = 0
+            TN = 0
+            FP = 0
+            FN = 0
+
+            apis = list(ref.keys())
+
+            for index in apis:
+                for relation in apis:
+                    relation = int(relation)
+                    if relation in ref[index] and relation in rels[index]:
+                        TP += 1
+                    elif relation in ref[index] and relation not in rels[index]:
+                        FN += 1
+                    elif relation not in ref[index] and relation in rels[index]:
+                        FP += 1
+                    elif relation not in ref[index] and relation not in rels[index]:
+                        TN += 1
+
+            accuracy = (TP + TN) / (TP + TN + FP + FN)
+            recall = TP / (TP + FN)
+            precision = TP / (TP + FP)
+            false_positive_rate = FP / (FP + TN)
+            
+            print(TP, TN, FP, FN)
+            print("acc: ", accuracy)
+            print("recall: ", recall)
+            print("precision: ", precision)
+
+            import seaborn as sn
+            import pandas as pd
+            import matplotlib.pyplot as plt
+            array = [[TP, FP], [FN, TN]]
+            df_cm = pd.DataFrame(array, index = [i for i in ["Predicted Positive", "Predicted Negative"]],
+                            columns = [i for i in ["Actually Positive", "Actually Negative"]])
+            plt.figure(figsize = (10,7))
+            sn.heatmap(df_cm, annot=True, fmt='d')
+            plt.show()
+
+                        
