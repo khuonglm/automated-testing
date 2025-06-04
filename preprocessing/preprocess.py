@@ -145,7 +145,7 @@ def graph_generation() -> dict[str, list[dict[str, str]]]:
     with open(os.path.join(curr_dir, "docs", "api_documentation.json"), "r") as f:
         api_documentation = json.load(f)
 
-    with open(os.path.join(curr_dir, "docs", "output", "relations_2025-06-01 13:38:34.json"), "r") as f:
+    with open(os.path.join(curr_dir, "docs", "output", "relations_2025-06-01_13-38-34.json"), "r") as f:
         relations = json.load(f)
     
     graph = {}
