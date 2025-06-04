@@ -3,6 +3,10 @@ from typing import Any
 from utils.random_generator import RandomGenerator
 from sequencer import Sequencer
 import datetime
+import random
+
+REUSE_THRESHOLD = 0.3
+MAPPING_THRESHOLD = 0.8
 
 class Fuzzer:
     def __init__(self, apis: list[Any], graph: dict[str, list[dict[str, Any]]], random_generator=RandomGenerator()):
@@ -57,6 +61,8 @@ class Fuzzer:
             else:
                 if is_register_start and param in ["email", "password"]:
                     body[param] = "john.doe@example.com" if param == "email" else "password"
+                elif param == "email":
+                    body[param] = self.random_generator.generate_random_email()
                 elif value == "<string>":
                     body[param] = self.random_generator.generate_random_string()
                 elif value == "<integer>":
@@ -65,27 +71,27 @@ class Fuzzer:
                     body[param] = value
         return body
 
-    def _build_endpoint(self, url: str, path_params: dict, query_params: dict) -> tuple[str, dict]:
-        """Construct the full API endpoint URL and return unused path params."""
+    def _build_endpoint(self, url: str, path_params: dict, query_params: dict, replaces: dict) -> tuple[str, dict]:
+        """Construct the full API endpoint URL"""
         endpoint = url
-        used_params = set()
-        
+
         # Replace path parameters and track which ones were used
         for param, value in path_params.items():
+            if f"path.{param}" in replaces:
+                continue
             placeholder = f"<{param}>"
             if placeholder in endpoint:
                 endpoint = endpoint.replace(placeholder, str(value))
-                used_params.add(param)
         
-        # Create cleaned path_params with only unused parameters
-        unused_path_params = {k: v for k, v in path_params.items() if k not in used_params}
+        for param, value in query_params.items():
+            if f"query.{param}" in replaces:
+                query_params[param] = f"<{param}>"
         
-        # Add query parameters
         if query_params:
             query_string = "&".join(f"{k}={v}" for k, v in query_params.items())
             endpoint += f"?{query_string}"
-        
-        return endpoint, unused_path_params
+
+        return endpoint
 
     def _get_dependency_mapping(self, sequence: list[str]) -> dict[str, list[dict]]:
         """Map each API index to dependencies from the previous API in the sequence."""
@@ -388,6 +394,8 @@ class Fuzzer:
         fuzzed_sequence = []
         dependency_map = self._get_dependency_mapping(sequence)
         call_data = {}  # Store request/response data for dependencies
+        string_values = []
+        int_values = []
 
         for call_id, api_idx in enumerate(sequence):
             api = self.apis[int(api_idx)]
@@ -401,26 +409,40 @@ class Fuzzer:
 
             # Populate path parameters
             for param, param_type in api["path_parameters"].items():
-                if param_type == "<string>":
-                    path_params[param] = self.random_generator.generate_random_string()
-                elif param_type == "<integer>":
-                    path_params[param] = self.random_generator.generate_random_int()
+                rand = random.random() 
+                if rand < REUSE_THRESHOLD and len(string_values) > 0 and len(int_values) > 0:
+                    if param_type == "<string>":
+                        path_params[param] = string_values[random.randint(0, len(string_values) - 1)]
+                    elif param_type == "<integer>":
+                        path_params[param] = int_values[random.randint(0, len(int_values) - 1)]
                 else:
-                    path_params[param] = param_type
+                    if param_type == "<string>":
+                        path_params[param] = self.random_generator.generate_random_string()
+                        string_values.append(path_params[param])
+                    elif param_type == "<integer>":
+                        path_params[param] = self.random_generator.generate_random_int()
+                        int_values.append(path_params[param])
 
             # Populate query parameters
             for param, param_type in api["query_parameters"].items():
-                if param_type == "<string>":
-                    query_params[param] = self.random_generator.generate_random_string()
-                elif param_type == "<integer>":
-                    query_params[param] = self.random_generator.generate_random_int()
+                rand = random.random() 
+                if rand < REUSE_THRESHOLD and len(string_values) > 0 and len(int_values) > 0:
+                    if param_type == "<string>":
+                        query_params[param] = string_values[random.randint(0, len(string_values) - 1)]
+                    elif param_type == "<integer>":
+                        query_params[param] = int_values[random.randint(0, len(int_values) - 1)]
                 else:
-                    query_params[param] = param_type
+                    if param_type == "<string>":
+                        query_params[param] = self.random_generator.generate_random_string()
+                        string_values.append(query_params[param])
+                    elif param_type == "<integer>":
+                        query_params[param] = self.random_generator.generate_random_int()
+                        int_values.append(query_params[param])
 
             # Populate headers
             for param, value in api["headers"].items():
                 if value == "<token>":
-                    headers[param] = self.random_generator.generate_random_string(32)
+                    headers[param] = self.random_generator.generate_random_jwt_token()
                 else:
                     headers[param] = value
 
@@ -431,7 +453,9 @@ class Fuzzer:
             # Apply dependencies for non-first calls
             if call_id > 0:
                 for dep in dependency_map.get(api_idx, []):
-                    if dep["source_idx"] == sequence[call_id - 1]:
+                    prev_api_idx = [t for t in range(call_id) if sequence[t] == dep["source_idx"]]
+                    if len(prev_api_idx) > 0:
+                        prev_api_idx = random.choice(prev_api_idx)
                         for mapping in dep["field_mappings"]:
                             source_field = mapping["source"]["fieldPath"]
                             source_phase = mapping["source"]["phase"]
@@ -439,7 +463,7 @@ class Fuzzer:
                             target_location = mapping["target"]["location"]
                             target_key = f"{target_location}.{target_field}"
 
-                            source_data = call_data[call_id - 1]["request"] if source_phase == "request" else call_data[call_id - 1]["response"]
+                            source_data = call_data[prev_api_idx]["request"] if source_phase == "request" else call_data[prev_api_idx]["response"]
                             value = self._get_nested_field(source_data, source_field)
                             if value is None:
                                 value = self.random_generator.generate_random_string()
@@ -454,9 +478,11 @@ class Fuzzer:
                                 headers[target_field] = f"Bearer {value}" if target_field == "Authorization" else value
                             elif target_location == "body":
                                 self._set_nested_field(body, target_field, value)
-                            replaces[target_key] = f"response.{{{call_id - 1}}}.{source_field}"
+                            rand = random.random()
+                            if rand < MAPPING_THRESHOLD:
+                                replaces[target_key] = f"response.{{{prev_api_idx}}}.{source_field}"
 
-            endpoint, unused_path_params = self._build_endpoint(api["url"], path_params, query_params)
+            endpoint = self._build_endpoint(api["url"], path_params, query_params, replaces)
 
             # Store request data
             request_data = {
@@ -481,9 +507,9 @@ class Fuzzer:
                 "endpoint": endpoint,
                 "request": {
                     "body": body,
-                    "path_params": unused_path_params,
-                    "query_params": query_params,
                     "headers": headers,
+                    "path": path_params,
+                    "query": query_params,
                     "replaces": replaces
                 }
             }
@@ -549,7 +575,8 @@ example_apis = [
                 "username": "<string>",
                 "email": "<string>",
                 "bio": "<string>",
-                "password": "<string>"
+                "password": "<string>",
+                "image": "<string>"
             }
         }
     },
@@ -766,15 +793,20 @@ example_apis = [
 ]
 
 if __name__ == "__main__":
-    with open('relations_2025-06-01_13-38-34.json') as json_file:
+    import os
+    PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+    with open(os.path.join(PATH, "preprocessing", "docs", "output", "relations_2025-06-01_13-38-34.json")) as json_file:
         dependencies = json.load(json_file)
 
-    sequencer = Sequencer(dependencies, example_apis)
-    sequence = sequencer.random_sequence(22)
-    print(f"Sequence: {sequence}")
-    fuzzer = Fuzzer(example_apis, dependencies)
-    inputs = fuzzer.fuzz_single_sequence(sequence)
+    for i in range(2):
+        sequencer = Sequencer(dependencies, example_apis)
+        sequence = sequencer.random_sequence(22)
+        fuzzer = Fuzzer(example_apis, dependencies)
+        inputs = fuzzer.fuzz_single_sequence(sequence)
 
-    # Write inputs to a JSON file
-    with open('fuzzed_inputs.json', 'w') as f:
-        json.dump(inputs, f, indent=2)
+        # Write inputs to a JSON file
+        with open(os.path.join(PATH, "test", f'fuzzed_inputs_{i}.json'), 'w') as f:
+            json.dump(inputs, f, indent=4)
+    
+    import subprocess
+    subprocess.run(["python", "linecoverage.py"], cwd=os.path.join(PATH, "evaluation"))

@@ -152,7 +152,7 @@ def make_comment_on_article(slug, body, **kwargs):
     if not article:
         raise InvalidUsage.article_not_found()
     comment = Comment(article, current_user.profile, body, **kwargs)
-    comment.save()
+    comment.save() # inject fault here
     return comment
 
 
@@ -161,7 +161,7 @@ def make_comment_on_article(slug, body, **kwargs):
 def delete_comment_on_article(slug, cid):
     article = Article.query.filter_by(slug=slug).first()
     if not article:
-        raise InvalidUsage.article_not_found()
+        raise InvalidUsage.article_not_found() # change to my_fault
 
     comment = article.comments.filter_by(id=cid, author=current_user.profile).first()
     comment.delete()

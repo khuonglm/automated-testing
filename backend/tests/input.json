@@ -1,39 +1,423 @@
 [
-    {
-        "method": "POST",
-        "endpoint": "/api/users",
-        "request": {
-            "body": {
-                "user": {
-                    "username": "JohnDoe",
-                    "email": "john.doe@example.com",
-                    "password": "password"
-                }
-            }
+  {
+    "method": "POST",
+    "endpoint": "/api/users",
+    "request": {
+      "body": {
+        "user": {
+          "username": "Z#P5@mtviydXu5Y9dzeRIaeb!DI&r*TZ%*HK^3qNHcEEFA7AR9RpickysA5DL8OyY&g6sR8@rTwKmQxH9OBj^C5WFP5x3",
+          "email": "john.doe@example.com",
+          "password": "password"
         }
-    },
-    {
-        "method": "POST",
-        "endpoint": "/api/users/login",
-        "request": {
-            "body": {
-                "user": {
-                    "email": "john.doe@example.com",
-                    "password": "password"
-                }
-            }
-        }
-    },
-    {
-        "method": "GET",
-        "endpoint": "/api/user",
-        "request": {
-            "headers": {
-                "Authorization": ""
-            },
-            "replaces": {
-                "headers.Authorization": "response.{0}.user.token"
-            }
-        }
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {},
+      "query": {},
+      "replaces": {}
     }
+  },
+  {
+    "method": "POST",
+    "endpoint": "/api/users/login",
+    "request": {
+      "body": {
+        "user": {
+          "email": "T8z7C",
+          "password": "eSYoMqiW@ig7XJZon6Q7HWHGDdvrV#Kg8#4Y7A7q#mk3Gelc4dW1lYEFV#YyYLZMkBPU6axVYans*x#k"
+        }
+      },
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {},
+      "query": {},
+      "replaces": {
+        "body.user.email": "response.{0}.user.email",
+        "body.user.password": "response.{0}.user.password"
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "endpoint": "/api/profiles/z/follow",
+    "request": {
+      "body": {},
+      "headers": {
+        "Authorization": "Bearer 7Kw@kRdGuj2$%X%Aer4t1IL^!MLHEayJ",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "username": "z"
+      },
+      "query": {},
+      "replaces": {
+        "header.Authorization": "response.{1}.user.token"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "endpoint": "/api/articles/feed?limit=9003583207803031821163295&offset=7",
+    "request": {
+      "body": {},
+      "headers": {
+        "Authorization": "wU^n5Ixo#EJV0Av^jTvyzTRGh$r%c&aM.PJw9&y5A7rU3Wr4sLrUfb3M7gTWm#M@b.NDGRqxkssCDpPeL8l1GmjdcJ4@USkCRd",
+        "Content-Type": "application/json"
+      },
+      "path": {},
+      "query": {
+        "limit": 9003583207803031821163295,
+        "offset": 7
+      },
+      "replaces": {}
+    }
+  },
+  {
+    "method": "DELETE",
+    "endpoint": "/api/articles/<slug>/comments/6",
+    "request": {
+      "body": {},
+      "headers": {
+        "Authorization": "S4D^sZ5lHfviV2gBE23gE2H3Ill2XN0Q.J1p&$K9IpRQjVfrLMzE28n8OsUW3d!Ja.1Xz^p0TZ#KNON3vyLiKX17m2b2bc7^1f",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "lwJg*kuiOq",
+        "cid": 6
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{3}.articles.[0].slug"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "endpoint": "/api/articles/IG3%z*UqFG/comments",
+    "request": {
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "IG3%z*UqFG"
+      },
+      "query": {},
+      "replaces": {}
+    }
+  },
+  {
+    "method": "POST",
+    "endpoint": "/api/articles/V^4nyHBCc5X8Ap7QjI4QJ&wxMBKKeAQjSE!wIpi%JxQsObVfiHF^Lu$H9K/comments",
+    "request": {
+      "body": {
+        "comment": {
+          "body": "PNGQitbnj8krQLKweNU6NZmKYgU4Igw4s@dW$RSe6daQv5dRLRyQemzNxP*6N4cdzfBK%wZfjF3b@aoY@a^g^FA$B7sJmR"
+        }
+      },
+      "headers": {
+        "Authorization": "^MVGz6yc9GEMjo#tTVbs8!Z!FFLUh8oN.g3s0T71yNW%hz!8HEsrZ9G6MNbtq^^kq.g^4zc1#yrlnyLrAUW^a&QT4Zkq$qnM%V",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "V^4nyHBCc5X8Ap7QjI4QJ&wxMBKKeAQjSE!wIpi%JxQsObVfiHF^Lu$H9K"
+      },
+      "query": {},
+      "replaces": {}
+    }
+  },
+  {
+    "method": "PUT",
+    "endpoint": "/api/articles/z",
+    "request": {
+      "body": {
+        "article": {
+          "title": "E$P",
+          "description": "58",
+          "body": "!bF4D#Q",
+          "tagList": [
+            "P5",
+            "GsWlz0^"
+          ]
+        }
+      },
+      "headers": {
+        "Authorization": "AM6y4&Nf@gRJZEM%VELP8Z&VN@%k&Mz1.TS7MfuciO&7$Ewoaov*Xn5a&*0xU2Ath.HbPR7G&8AYKP#LXSuJY6RsSIY%rP#t%W",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "z"
+      },
+      "query": {},
+      "replaces": {}
+    }
+  },
+  {
+    "method": "GET",
+    "endpoint": "/api/articles/<slug>/comments",
+    "request": {
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "z"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{7}.article.slug"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "endpoint": "/api/articles/<slug>/favorite",
+    "request": {
+      "body": {},
+      "headers": {
+        "Authorization": "AoWYl%&o%6WanFte@^52AUcaWLDkhtHq.lmUb@zl2GdoXyhae6cmqa5fDIY!dx1xd.nB$xh!lRJl%tFSUTKFzzJXJ1ahaSWGaH",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "aUVGfXfHe6ao0kDmBc04nXXu@QTTJjdIzLYnqDWvIu!D9dgJE$oLpTt"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{5}.slug"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "endpoint": "/api/articles?tag=61e&author=JEzK0&favorited=<favorited>&limit=1&offset=67&slug=<slug>&favoritesCount=<favoritesCount>",
+    "request": {
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {},
+      "query": {
+        "tag": "61e",
+        "author": "JEzK0",
+        "favorited": "<favorited>",
+        "limit": 1,
+        "offset": 67,
+        "slug": "<slug>",
+        "favoritesCount": "<favoritesCount>"
+      },
+      "replaces": {
+        "query.slug": "response.{9}.article.slug",
+        "query.favorited": "response.{9}.article.favorited",
+        "query.favoritesCount": "response.{9}.article.favoritesCount"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "endpoint": "/api/articles/jGC0NAxBMrO/comments",
+    "request": {
+      "body": {
+        "comment": {
+          "body": "lo4fCwfOH"
+        }
+      },
+      "headers": {
+        "Authorization": "vDE&&Zh9f2nmc1f#bIGXxq9BS&6ldx4u.oSvh%ijxJD0fMQj!a2@dV5AJv#A#*o1s.ETMBLHlUnL!7L*qcqHqzos15zgo5^tVB",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "jGC0NAxBMrO"
+      },
+      "query": {},
+      "replaces": {}
+    }
+  },
+  {
+    "method": "GET",
+    "endpoint": "/api/articles/<slug>/comments",
+    "request": {
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "z"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{7}.article.slug"
+      }
+    }
+  },
+  {
+    "method": "DELETE",
+    "endpoint": "/api/articles/<slug>",
+    "request": {
+      "body": {},
+      "headers": {
+        "Authorization": "YpHL0!^CwZ&I2XkItD4092qIx8zvW!6^.uTGPMk8wxeo7P%1a$qMYjuFE^dY*HC$W.#^ol*d0$$GJQ5Wow0^h!fbf6MSf6V#7C",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "h&"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{6}.slug"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "endpoint": "/api/articles/<slug>",
+    "request": {
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "mSEASWsopA%UDQ"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{13}.slug"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "endpoint": "/api/articles/<slug>/favorite",
+    "request": {
+      "body": {},
+      "headers": {
+        "Authorization": "z0!Xrq#cKOkfq$q^l4X@*cGN%%5ngP8D.GVCp40wAbk88Ojw0&3q9$nRh@ZQ6YiJq.64QSzlOtb7DWRe9MQkj#LpHf83$k1Fye",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "PK"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{8}.slug"
+      }
+    }
+  },
+  {
+    "method": "GET",
+    "endpoint": "/api/articles/<slug>/comments",
+    "request": {
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "z"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{7}.article.slug"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "endpoint": "/api/articles/<slug>/favorite",
+    "request": {
+      "body": {},
+      "headers": {
+        "Authorization": "uRDcEgj3HDI!UvB9hzoKdOF#r&3^hOD8.FlU62bZF7WMUU7fC950oTJwl@8p%$p&3.sQk$88W#WyBP7hN0B0xfJC$!ReJ!DIq4",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "T63c%7T%GBcf!xMPyVD6mN^7ugm%z8!rX"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{8}.slug"
+      }
+    }
+  },
+  {
+    "method": "PUT",
+    "endpoint": "/api/articles/A",
+    "request": {
+      "body": {
+        "article": {
+          "title": "uHeEHC",
+          "description": "EsAXJ1ZyFWequHULMx3e%RopMOXxdJ#8DaFOsLFeNKJtZ*HR3w!BSlaN3eW!VyMY2Is",
+          "body": "w&fC*u8RlxfYp$KCz36!A8nJnD0tKl5BZHpTWHs&%8BdSPW#PoTV#*h",
+          "tagList": [
+            "xJVbJ@$lCqGgku$QkrONA9g7PIj%65A!6DIGRpCL2%f#Ijn0I*OYpva@KpEb",
+            "^mV&0z5"
+          ]
+        }
+      },
+      "headers": {
+        "Authorization": "&wM$%VgWR&uLkm3&$HZ3894S1jqYahYx.pKEqJ8121hvD5xNjcPh$SVf2S61yfshx.nJK!kA9CFNxVF9kb0lI68VyIZHKvP^V3",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "A"
+      },
+      "query": {},
+      "replaces": {}
+    }
+  },
+  {
+    "method": "GET",
+    "endpoint": "/api/articles/<slug>/comments",
+    "request": {
+      "body": {},
+      "headers": {
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "z"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{7}.article.slug"
+      }
+    }
+  },
+  {
+    "method": "POST",
+    "endpoint": "/api/articles/Xkyze43mzHo95H@*b1uFlTSSb4/comments",
+    "request": {
+      "body": {
+        "comment": {
+          "body": "s4"
+        }
+      },
+      "headers": {
+        "Authorization": "aIack3kNUTs5hOQthWT#hqPx!ayjLWp6.n!0r18a44svPlERb6YM0uSrtTfjvu&Eu.@SXYx^Dap%UUTU6$JF9oUwrA3tQOTYqB",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "Xkyze43mzHo95H@*b1uFlTSSb4"
+      },
+      "query": {},
+      "replaces": {}
+    }
+  },
+  {
+    "method": "DELETE",
+    "endpoint": "/api/articles/<slug>",
+    "request": {
+      "body": {},
+      "headers": {
+        "Authorization": "CEgXN&8AqBo5rPL*O!NAnTIMSD^e@f3K.vTH$FHW!bH6TU%A2m6C8IMZ!D1g&VTns.Nb9#iWNqAHgxicZaDdqo6lgloUiSlRCQ",
+        "Content-Type": "application/json"
+      },
+      "path": {
+        "slug": "B"
+      },
+      "query": {},
+      "replaces": {
+        "path.slug": "response.{11}.slug"
+      }
+    }
+  }
 ]

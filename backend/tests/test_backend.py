@@ -33,6 +33,11 @@ def test_coverage(testapp):
                 for field in to_fields[2:]:
                     if field[0] == "[" and field[-1] == "]":
                         field = int(field[1:-1])
+                        if field >= len(to_data):
+                            is_valid = False
+                            break
+                        to_data = to_data[field]
+                        continue
                     
                     if field not in to_data:
                         is_valid = False
@@ -43,15 +48,9 @@ def test_coverage(testapp):
                 if is_valid and from_fields[-1] in from_data:
                     from_data[from_fields[-1]] = to_data
 
-        if "headers" in data:
+        if "headers" in data and "Authorization" in data["headers"]:
             header = data["headers"]
             header["Authorization"] = "Token " + header["Authorization"]
-        if "path_params" in data:
-            for key, value in data["path_params"].items():
-                endpoint = endpoint.replace(f"<{key}>", value)
-        if "query_params" in data:
-            for key, value in data["query_params"].items():
-                endpoint = endpoint.replace(f"<{key}>", value)
         if "body" in data:
             req = TestRequest.blank(endpoint,
                               method = api["method"],

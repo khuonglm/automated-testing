@@ -1,1 +1,162 @@
-{"covered_lines": 470, "num_statements": 706, "missing_lines": 236, "excluded_lines": 0, "num_branches": 92, "num_partial_branches": 7, "covered_branches": 7, "missing_branches": 85, "line_coverage": 66.57223796033995, "branch_coverage": 7.608695652173914}
+{
+    "set_of_files": {
+        "conduit/__init__.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 1,
+            "missing_branches": 0,
+            "missing_lines": 0
+        },
+        "conduit/app.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 44,
+            "missing_branches": 0,
+            "missing_lines": 1
+        },
+        "conduit/articles/__init__.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 1,
+            "missing_branches": 0,
+            "missing_lines": 0
+        },
+        "conduit/articles/models.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 47,
+            "missing_branches": 10,
+            "missing_lines": 26
+        },
+        "conduit/articles/serializers.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 50,
+            "missing_branches": 0,
+            "missing_lines": 11
+        },
+        "conduit/articles/views.py": {
+            "excluded_lines": 0,
+            "executed_branches": 5,
+            "executed_lines": 69,
+            "missing_branches": 21,
+            "missing_lines": 52
+        },
+        "conduit/commands.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 23,
+            "missing_branches": 22,
+            "missing_lines": 57
+        },
+        "conduit/compat.py": {
+            "excluded_lines": 0,
+            "executed_branches": 1,
+            "executed_lines": 9,
+            "missing_branches": 1,
+            "missing_lines": 5
+        },
+        "conduit/database.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 15,
+            "missing_branches": 2,
+            "missing_lines": 2
+        },
+        "conduit/exceptions.py": {
+            "excluded_lines": 0,
+            "executed_branches": 1,
+            "executed_lines": 34,
+            "missing_branches": 1,
+            "missing_lines": 4
+        },
+        "conduit/extensions.py": {
+            "excluded_lines": 0,
+            "executed_branches": 1,
+            "executed_lines": 27,
+            "missing_branches": 3,
+            "missing_lines": 7
+        },
+        "conduit/profile/__init__.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 1,
+            "missing_branches": 0,
+            "missing_lines": 0
+        },
+        "conduit/profile/models.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 24,
+            "missing_branches": 6,
+            "missing_lines": 16
+        },
+        "conduit/profile/serializers.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 17,
+            "missing_branches": 0,
+            "missing_lines": 2
+        },
+        "conduit/profile/views.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 19,
+            "missing_branches": 6,
+            "missing_lines": 16
+        },
+        "conduit/settings.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 36,
+            "missing_branches": 0,
+            "missing_lines": 0
+        },
+        "conduit/user/__init__.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 2,
+            "missing_branches": 0,
+            "missing_lines": 0
+        },
+        "conduit/user/models.py": {
+            "excluded_lines": 0,
+            "executed_branches": 1,
+            "executed_lines": 23,
+            "missing_branches": 1,
+            "missing_lines": 2
+        },
+        "conduit/user/serializers.py": {
+            "excluded_lines": 0,
+            "executed_branches": 2,
+            "executed_lines": 24,
+            "missing_branches": 2,
+            "missing_lines": 2
+        },
+        "conduit/user/views.py": {
+            "excluded_lines": 0,
+            "executed_branches": 1,
+            "executed_lines": 36,
+            "missing_branches": 5,
+            "missing_lines": 16
+        },
+        "conduit/utils.py": {
+            "excluded_lines": 0,
+            "executed_branches": 0,
+            "executed_lines": 5,
+            "missing_branches": 0,
+            "missing_lines": 1
+        }
+    },
+    "stats": {
+        "branch_coverage": 13.043478260869565,
+        "covered_branches": 12,
+        "covered_lines": 507,
+        "excluded_lines": 0,
+        "line_coverage": 69.73865199449793,
+        "missing_branches": 80,
+        "missing_lines": 220,
+        "num_branches": 92,
+        "num_statements": 727
+    }
+}
