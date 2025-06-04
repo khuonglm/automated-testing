@@ -17,7 +17,18 @@ def linecoverage(input: str, output: str):
 
 def linecoverage_all():
     set_of_files = dict()
-    for i, file in enumerate(os.listdir(TEST_PATH)):
+    if os.path.exists(os.path.join(COV_PATH, "stats_summary.json")):
+        with open(os.path.join(COV_PATH, "stats_summary.json")) as f:
+            cov_data = json.load(f)
+        set_of_files = cov_data["set_of_files"]
+        for key, value in set_of_files.items():
+            for k, v in value.items():
+                if "branches" in k:
+                    value[k] = set(tuple(t) for t in value[k])
+                else:
+                    value[k] = set(value[k])
+
+    for file in os.listdir(TEST_PATH):
         if file.endswith(".json"):
             linecoverage(os.path.join(TEST_PATH, file), os.path.join(COV_PATH, file))
             with open(os.path.join(COV_PATH, file), "r") as f:
@@ -37,38 +48,42 @@ def linecoverage_all():
                         else:
                             v = v | set(value[k])
                         set_of_files[key][k] = v
-            
-            if i % 1000 == 0:
-                for key, value in set_of_files.items():
-                    value["missing_lines"] = value["missing_lines"] - value["excluded_lines"] - value["executed_lines"]
-                    value["missing_branches"] = value["missing_branches"] - value["executed_branches"]
-                    value["excluded_lines"] = value["excluded_lines"] - value["executed_lines"]
 
-                stats = {
-                    "covered_lines": sum(len(value["executed_lines"]) for value in set_of_files.values()),
-                    "num_statements": sum(len(value["executed_lines"]) + len(value["missing_lines"]) + len(value["excluded_lines"]) for value in set_of_files.values()),
-                    "missing_lines": sum(len(value["missing_lines"]) for value in set_of_files.values()),
-                    "excluded_lines": sum(len(value["excluded_lines"]) for value in set_of_files.values()),
-                    "num_branches": sum(len(value["executed_branches"]) + len(value["missing_branches"]) for value in set_of_files.values()),
-                    "covered_branches": sum(len(value["executed_branches"]) for value in set_of_files.values()),
-                    "missing_branches": sum(len(value["missing_branches"]) for value in set_of_files.values())
-                }
-                stats["line_coverage"] = stats["covered_lines"] / stats["num_statements"] * 100 if stats["num_statements"] > 0 else 0
-                stats["branch_coverage"] = stats["covered_branches"] / stats["num_branches"] * 100 if stats["num_branches"] > 0 else 0
+    for key, value in set_of_files.items():
+        value["missing_lines"] = value["missing_lines"] - value["excluded_lines"] - value["executed_lines"]
+        value["missing_branches"] = value["missing_branches"] - value["executed_branches"]
+        value["excluded_lines"] = value["excluded_lines"] - value["executed_lines"]
 
-                for key, value in set_of_files.items():
-                    for k, v in value.items():
-                        v = list(v)
-                        v.sort()
-                        value[k] = len(v)
+    stats = {
+        "covered_lines": sum(len(value["executed_lines"]) for value in set_of_files.values()),
+        "num_statements": sum(len(value["executed_lines"]) + len(value["missing_lines"]) + len(value["excluded_lines"]) for value in set_of_files.values()),
+        "missing_lines": sum(len(value["missing_lines"]) for value in set_of_files.values()),
+        "excluded_lines": sum(len(value["excluded_lines"]) for value in set_of_files.values()),
+        "num_branches": sum(len(value["executed_branches"]) + len(value["missing_branches"]) for value in set_of_files.values()),
+        "covered_branches": sum(len(value["executed_branches"]) for value in set_of_files.values()),
+        "missing_branches": sum(len(value["missing_branches"]) for value in set_of_files.values())
+    }
+    stats["line_coverage"] = stats["covered_lines"] / stats["num_statements"] * 100 if stats["num_statements"] > 0 else 0
+    stats["branch_coverage"] = stats["covered_branches"] / stats["num_branches"] * 100 if stats["num_branches"] > 0 else 0
 
-                with open(os.path.join(COV_PATH, "stats_summary.json"), "w") as f:
-                    json.dump(
-                        {
-                            "stats": stats,
-                            "set_of_files": set_of_files
-                        },
-                        f, indent=4, sort_keys=True)
+
+    summary = dict()
+    for key, value in set_of_files.items():
+        summary[key] = dict()
+        for k, v in value.items():
+            v = list(v)
+            v.sort()
+            value[k] = v
+            summary[key][k] = len(v)
+
+    with open(os.path.join(COV_PATH, "stats_summary.json"), "w") as f:
+        json.dump(
+            {
+                "stats": stats,
+                "summary": summary,
+                "set_of_files": set_of_files,
+            },
+            f, indent=4)
 
 if __name__ == "__main__":
     linecoverage_all()

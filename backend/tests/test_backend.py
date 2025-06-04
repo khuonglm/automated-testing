@@ -29,7 +29,10 @@ def test_coverage(testapp):
                     from_data = from_data[field]
                 
                 assert to_fields[0] == "response"
-                to_data = responses[int(to_fields[1][1:-1])].json
+                if 'application/json' in responses[int(to_fields[1][1:-1])].headers.get('Content-Type', ''):
+                    to_data = responses[int(to_fields[1][1:-1])].json
+                else:
+                    continue
                 for field in to_fields[2:]:
                     if field[0] == "[" and field[-1] == "]":
                         field = int(field[1:-1])

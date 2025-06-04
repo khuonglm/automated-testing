@@ -1,14 +1,14 @@
 {
     "stats": {
-        "covered_lines": 510,
+        "covered_lines": 504,
         "num_statements": 727,
-        "missing_lines": 217,
+        "missing_lines": 223,
         "excluded_lines": 0,
         "num_branches": 92,
-        "covered_branches": 13,
-        "missing_branches": 79,
-        "line_coverage": 70.15130674002751,
-        "branch_coverage": 14.130434782608695
+        "covered_branches": 11,
+        "missing_branches": 81,
+        "line_coverage": 69.32599724896836,
+        "branch_coverage": 11.956521739130435
     },
     "summary": {
         "conduit/__init__.py": {
@@ -47,11 +47,11 @@
             "missing_branches": 0
         },
         "conduit/articles/views.py": {
-            "executed_lines": 69,
-            "missing_lines": 52,
+            "executed_lines": 66,
+            "missing_lines": 55,
             "excluded_lines": 0,
-            "executed_branches": 5,
-            "missing_branches": 21
+            "executed_branches": 4,
+            "missing_branches": 22
         },
         "conduit/commands.py": {
             "executed_lines": 23,
@@ -110,11 +110,11 @@
             "missing_branches": 0
         },
         "conduit/profile/views.py": {
-            "executed_lines": 22,
-            "missing_lines": 13,
+            "executed_lines": 19,
+            "missing_lines": 16,
             "excluded_lines": 0,
-            "executed_branches": 1,
-            "missing_branches": 5
+            "executed_branches": 0,
+            "missing_branches": 6
         },
         "conduit/settings.py": {
             "executed_lines": 36,
@@ -464,9 +464,6 @@
                 79,
                 80,
                 81,
-                82,
-                83,
-                84,
                 88,
                 89,
                 90,
@@ -520,6 +517,9 @@
                 73,
                 74,
                 75,
+                82,
+                83,
+                84,
                 85,
                 92,
                 93,
@@ -564,10 +564,6 @@
                 [
                     34,
                     36
-                ],
-                [
-                    83,
-                    84
                 ],
                 [
                     141,
@@ -618,6 +614,10 @@
                 [
                     63,
                     65
+                ],
+                [
+                    83,
+                    84
                 ],
                 [
                     83,
@@ -1149,9 +1149,6 @@
                 15,
                 16,
                 17,
-                18,
-                19,
-                20,
                 24,
                 25,
                 26,
@@ -1162,6 +1159,9 @@
                 39
             ],
             "missing_lines": [
+                18,
+                19,
+                20,
                 21,
                 28,
                 29,
@@ -1177,13 +1177,12 @@
                 45
             ],
             "excluded_lines": [],
-            "executed_branches": [
+            "executed_branches": [],
+            "missing_branches": [
                 [
                     19,
                     20
-                ]
-            ],
-            "missing_branches": [
+                ],
                 [
                     19,
                     21

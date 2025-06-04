@@ -794,19 +794,32 @@ example_apis = [
 
 if __name__ == "__main__":
     import os
+    import time
+    import subprocess
     PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
     with open(os.path.join(PATH, "preprocessing", "docs", "output", "relations_2025-06-01_13-38-34.json")) as json_file:
         dependencies = json.load(json_file)
 
-    for i in range(2):
+    if os.path.exists(os.path.join(PATH, "test_cov", "stats_summary.json")):
+        os.remove(os.path.join(PATH, "test_cov", "stats_summary.json"))
+
+    curr_time = time.strftime("%Y-%m-%d_%H-%M-%S")
+    N   = 100000
+    mod = 5000
+    for i in range(N):
         sequencer = Sequencer(dependencies, example_apis)
         sequence = sequencer.random_sequence(22)
         fuzzer = Fuzzer(example_apis, dependencies)
         inputs = fuzzer.fuzz_single_sequence(sequence)
 
         # Write inputs to a JSON file
-        with open(os.path.join(PATH, "test", f'fuzzed_inputs_{i}.json'), 'w') as f:
+        with open(os.path.join(PATH, "test", f'fuzzed_inputs.json'), 'w') as f:
             json.dump(inputs, f, indent=4)
-    
-    import subprocess
-    subprocess.run(["python", "linecoverage.py"], cwd=os.path.join(PATH, "evaluation"))
+        
+        subprocess.run(["python", "linecoverage.py"], cwd=os.path.join(PATH, "evaluation"))
+
+        if i % mod == 0 or i == N - 1:
+            with open(os.path.join(PATH, "test_cov", "stats_summary.json")) as f:
+                data = json.load(f)
+            with open(os.path.join(PATH, "test_cov", f"stats_summary_{curr_time}_{i}.json"), 'w') as f:
+                json.dump(data, f, indent=4)
