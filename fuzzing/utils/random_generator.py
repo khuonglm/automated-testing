@@ -23,6 +23,7 @@ class RandomGenerator:
     def generate_random_int(self, length: int | None = None, chars: str = INT_CHARS) -> int:
         if length is None:
             length = self.generate_random_length()
+        length = random.choice([1, length])
         return int(''.join(random.choice(chars) for _ in range(length)))
 
     def generate_random_float(self, length: int | None = None, chars: str = INT_CHARS) -> float:
@@ -74,3 +75,6 @@ class RandomGenerator:
         if length is None:
             length = self.generate_random_length()
         return random.sample(population, length)
+
+    def choice(self, list: list[any]) -> any:
+        return random.choice(list)
