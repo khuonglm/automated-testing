@@ -1082,13 +1082,13 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[].author.username"
+                        "fieldPath": "articles.[0].author.username"
                     },
                     "target": {
                         "api": "4",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<username>"
+                        "fieldPath": "username"
                     }
                 }
             ]
@@ -1105,13 +1105,13 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "9",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -1128,13 +1128,13 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "11",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": ""
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1142,7 +1142,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].title"
+                        "fieldPath": "articles.[0].title"
                     },
                     "target": {
                         "api": "11",
@@ -1156,7 +1156,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].description"
+                        "fieldPath": "articles.[0].description"
                     },
                     "target": {
                         "api": "11",
@@ -1170,7 +1170,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].body"
+                        "fieldPath": "articles.[0].body"
                     },
                     "target": {
                         "api": "11",
@@ -1193,13 +1193,13 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "13",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -1216,7 +1216,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "14",
@@ -1239,13 +1239,13 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "15",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -1262,7 +1262,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "16",
@@ -1276,7 +1276,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "16",
@@ -1290,7 +1290,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "16",
@@ -1304,7 +1304,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[3].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "16",
@@ -1327,7 +1327,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "17",
@@ -1341,7 +1341,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "17",
@@ -1355,7 +1355,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "17",
@@ -1369,7 +1369,7 @@
                         "api": "7",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[3].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "17",
@@ -1417,13 +1417,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].author.username"
+                        "fieldPath": "articles.[0].author.username"
                     },
                     "target": {
                         "api": "4",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<username>"
+                        "fieldPath": "username"
                     }
                 },
                 {
@@ -1431,13 +1431,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].author.username"
+                        "fieldPath": "articles.[0].author.username"
                     },
                     "target": {
                         "api": "4",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<username>"
+                        "fieldPath": "username"
                     }
                 },
                 {
@@ -1445,7 +1445,7 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].author.username"
+                        "fieldPath": "articles.[0].author.username"
                     },
                     "target": {
                         "api": "4",
@@ -1483,13 +1483,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "9",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1497,13 +1497,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "9",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1511,13 +1511,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "9",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -1542,13 +1542,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "12",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1556,13 +1556,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "12",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1570,13 +1570,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "12",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -1593,13 +1593,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "13",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1607,13 +1607,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "13",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1621,13 +1621,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "13",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -1644,13 +1644,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "14",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1658,13 +1658,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "14",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1672,13 +1672,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "14",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -1695,7 +1695,7 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "15",
@@ -1709,7 +1709,7 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "15",
@@ -1723,7 +1723,7 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "15",
@@ -1746,13 +1746,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "16",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1760,13 +1760,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "16",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1774,13 +1774,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "16",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -1797,13 +1797,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[0].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "17",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1811,13 +1811,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[1].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "17",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 },
                 {
@@ -1825,13 +1825,13 @@
                         "api": "8",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "articles[2].slug"
+                        "fieldPath": "articles.[0].slug"
                     },
                     "target": {
                         "api": "17",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -2152,7 +2152,7 @@
                         "api": "12",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -2175,7 +2175,7 @@
                         "api": "13",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -2198,7 +2198,7 @@
                         "api": "14",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -2314,7 +2314,7 @@
                         "api": "13",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -2337,7 +2337,7 @@
                         "api": "14",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -2774,13 +2774,13 @@
                         "api": "14",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "comments[].id"
+                        "fieldPath": "comments.[0].id"
                     },
                     "target": {
                         "api": "15",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<cid>"
+                        "fieldPath": "cid"
                     }
                 }
             ]
@@ -2929,13 +2929,13 @@
                         "api": "14",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "comments[].id"
+                        "fieldPath": "comments.[0].id"
                     },
                     "target": {
                         "api": "15",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<cid>"
+                        "fieldPath": "cid"
                     }
                 },
                 {
@@ -2943,13 +2943,13 @@
                         "api": "14",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "comments[].body"
+                        "fieldPath": "comments.[0].body"
                     },
                     "target": {
                         "api": "15",
                         "phase": "request",
                         "location": "path",
-                        "fieldPath": "<slug>"
+                        "fieldPath": "slug"
                     }
                 }
             ]
@@ -3361,91 +3361,7 @@
                         "api": "18",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "tags[0]"
-                    },
-                    "target": {
-                        "api": "7",
-                        "phase": "request",
-                        "location": "query",
-                        "fieldPath": "tag"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[1]"
-                    },
-                    "target": {
-                        "api": "7",
-                        "phase": "request",
-                        "location": "query",
-                        "fieldPath": "tag"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[2]"
-                    },
-                    "target": {
-                        "api": "7",
-                        "phase": "request",
-                        "location": "query",
-                        "fieldPath": "tag"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[3]"
-                    },
-                    "target": {
-                        "api": "7",
-                        "phase": "request",
-                        "location": "query",
-                        "fieldPath": "tag"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[4]"
-                    },
-                    "target": {
-                        "api": "7",
-                        "phase": "request",
-                        "location": "query",
-                        "fieldPath": "tag"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[5]"
-                    },
-                    "target": {
-                        "api": "7",
-                        "phase": "request",
-                        "location": "query",
-                        "fieldPath": "tag"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[6]"
+                        "fieldPath": "tags.[0]"
                     },
                     "target": {
                         "api": "7",
@@ -3468,13 +3384,13 @@
                         "api": "18",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "tags[0]"
+                        "fieldPath": "tags.[0]"
                     },
                     "target": {
                         "api": "10",
                         "phase": "request",
                         "location": "body",
-                        "fieldPath": "article.tagList[0]"
+                        "fieldPath": "article.tagList.[0]"
                     }
                 },
                 {
@@ -3482,83 +3398,13 @@
                         "api": "18",
                         "phase": "response",
                         "location": "body",
-                        "fieldPath": "tags[1]"
+                        "fieldPath": "tags.[1]"
                     },
                     "target": {
                         "api": "10",
                         "phase": "request",
                         "location": "body",
-                        "fieldPath": "article.tagList[1]"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[2]"
-                    },
-                    "target": {
-                        "api": "10",
-                        "phase": "request",
-                        "location": "body",
-                        "fieldPath": "article.tagList[2]"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[3]"
-                    },
-                    "target": {
-                        "api": "10",
-                        "phase": "request",
-                        "location": "body",
-                        "fieldPath": "article.tagList[3]"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[4]"
-                    },
-                    "target": {
-                        "api": "10",
-                        "phase": "request",
-                        "location": "body",
-                        "fieldPath": "article.tagList[4]"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[5]"
-                    },
-                    "target": {
-                        "api": "10",
-                        "phase": "request",
-                        "location": "body",
-                        "fieldPath": "article.tagList[5]"
-                    }
-                },
-                {
-                    "source": {
-                        "api": "18",
-                        "phase": "response",
-                        "location": "body",
-                        "fieldPath": "tags[6]"
-                    },
-                    "target": {
-                        "api": "10",
-                        "phase": "request",
-                        "location": "body",
-                        "fieldPath": "article.tagList[6]"
+                        "fieldPath": "article.tagList.[1]"
                     }
                 }
             ]
