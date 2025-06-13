@@ -2,7 +2,8 @@
     "metadata": {
         "header": {
             "authentication": "Authorization: Token jwt.token.here"
-        }
+        },
+        "note": "Although user token is returned in many APIs, ONLY API of user login should be used as token for other APIs."
     },
     "APIs": [
         {
@@ -16,7 +17,7 @@
                             "createdAt": "2024-11-10T12:39:09.507917",
                             "email": "nakaist@kaist.ac.kr",
                             "image": null,
-                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDMyMjcsIm5iZiI6MTczMTI0MzIyNywianRpIjoiNTViOTNjNTEtMjVlMC00MDEwLThjMGQtOTkyZGJlMzEwYjRjIiwiZXhwIjo4ODEzMTI0MzIyNywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.uyD9s7KKuxZK5H1hMpIVw9BxE_JjotPELPVYb9jss24",
+                            "token": "jwt.token.here",
                             "updatedAt": "2024-11-10T12:39:09.507923",
                             "username": "hnatahn"
                         }
@@ -50,7 +51,7 @@
                             "createdAt": "2024-11-10T12:39:09.507917",
                             "email": "nakaist@kaist.ac.kr",
                             "image": null,
-                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDIzNDksIm5iZiI6MTczMTI0MjM0OSwianRpIjoiMjZjN2Q1MjItMThlNC00YzVkLThlMWQtNDE5ODNjYTkzZjFjIiwiZXhwIjo4ODEzMTI0MjM0OSwiaWRlbnRpdHkiOjIsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.rLWvkb7wILaLIiy0mQhqgbjfsqt7LiVSUmVzKeGHMlM",
+                            "token": "jwt.token.here",
                             "updatedAt": "2024-11-10T12:39:09.507923",
                             "username": "hnatahn"
                         }
@@ -77,14 +78,14 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X GET http://localhost:5000/api/user -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDQ1NzcsIm5iZiI6MTczMTI0NDU3NywianRpIjoiYmE4MGIzZmUtMmUxOS00NzlmLWE5YmMtYTBmYmE1YWEyMDQ1IiwiZXhwIjo4ODEzMTI0NDU3NywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.zWS7vN6mG6FGE_DsoglnNQWd1skPqjGW1Ekexv4y7Zw\"",
+                    "request": "curl -X GET http://localhost:5000/api/user -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "user": {
                             "bio": null,
                             "createdAt": "2024-11-10T12:39:09.507917",
                             "email": "nakaist@kaist.ac.kr",
                             "image": null,
-                            "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDQ1NzcsIm5iZiI6MTczMTI0NDU3NywianRpIjoiYmE4MGIzZmUtMmUxOS00NzlmLWE5YmMtYTBmYmE1YWEyMDQ1IiwiZXhwIjo4ODEzMTI0NDU3NywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.zWS7vN6mG6FGE_DsoglnNQWd1skPqjGW1Ekexv4y7Zw",
+                            "token": "jwt.token.here",
                             "updatedAt": "2024-11-10T12:39:09.507923",
                             "username": "hnatahn"
                         }
@@ -92,7 +93,7 @@
                 },
                 {
                     "id": 1,
-                    "request": "curl -X GET http://localhost:5000/api/user -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDQ1NzcsIm5iZiI6MTczMTI0NDU3NywianRpIjoiYmE4MGIzZmUtMmUxOS00NzlmLWE5YmMtYTBmYmE1YWEyMDQ1IiwiZXhwIjo4ODEzMTI0NDU3NywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.zWS7vN6mG6FGE_DsoglnNQWd1skPqjGW1Ekexv4y71w\"",
+                    "request": "curl -X GET http://localhost:5000/api/user -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "msg": "Signature verification failed"
                     }
@@ -107,7 +108,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X PUT http://localhost:5000/api/user -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4NDgxNzYsIm5iZiI6MTczMTg0ODE3NiwianRpIjoiZGJkNWFkZGMtYzgzZi00ZDdkLWE5NDAtY2QzYTVlZTA5YTk5IiwiZXhwIjo4ODEzMTg0ODE3NiwiaWRlbnRpdHkiOjMsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.JrjC3Km-SqhL-CRj0rOIangmjXM-T5p3ZOy1JuFE5kI\" -H \"Content-Type: application/json\" -d '{\"user\": {\"username\": \"namcao\"}}'",
+                    "request": "curl -X PUT http://localhost:5000/api/user -H \"Authorization: Token jwt.token.here\" -H \"Content-Type: application/json\" -d '{\"user\": {\"username\": \"namcao\"}}'",
                     "response": {
                         "user": {
                             "bio": null,
@@ -122,7 +123,7 @@
                 },
                 {
                     "id": 1,
-                    "request": "curl -X PUT http://localhost:5000/api/user -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzEyNDYxNjcsIm5iZiI6MTczMTI0NjE2NywianRpIjoiMjY5MzYzODUtNmRiNS00NGE4LTg1Y2QtNzRiYTYxNTY2ZmE2IiwiZXhwIjo4ODEzMTI0NjE2NywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.LlXZaG7EMoFLv1Rd0MLtBBSSZ8GLR4Cmyt0wgS4qe9Dw\" -H \"Content-Type: application/json\" -d '{\"user\": {\"email\": \"nakaist@kaist.ac.kr\", \"bio\": \"I like to skateboard\", \"password\": \"nhatanh01042002\"}}'",
+                    "request": "curl -X PUT http://localhost:5000/api/user -H \"Authorization: Token jwt.token.here\" -H \"Content-Type: application/json\" -d '{\"user\": {\"email\": \"nakaist@kaist.ac.kr\", \"bio\": \"I like to skateboard\", \"password\": \"nhatanh01042002\"}}'",
                     "response": {
                         "msg": "Signature verification failed"
                     }
@@ -169,7 +170,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X POST http://localhost:5000/api/profiles/hnatahn/follow -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4MjI2NDIsIm5iZiI6MTczMTgyMjY0MiwianRpIjoiNGEzNzMwOTktMzkzNC00NDhmLTgxNzgtOWI1NjlhYmRhZGMzIiwiZXhwIjo4ODEzMTgyMjY0MiwiaWRlbnRpdHkiOjMsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.boHINAKCdJoI7WDRaYTzXyWv8JEi4rsjaMvtAakBGIY\"",
+                    "request": "curl -X POST http://localhost:5000/api/profiles/hnatahn/follow -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "profile": {
                             "bio": "I like to skateboard",
@@ -182,14 +183,14 @@
                 },
                 {
                     "id": 1,
-                    "request": "curl -X POST http://localhost:5000/api/profiles/hnatahn/follow -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4MjI2NDIsIm5iZiI6MTczMTgyMjY0MiwianRpIjoiNGEzNzMwOTktMzkzNC00NDhmLTgxNzgtOWI1NjlhYmRhZGMzIiwiZXhwIjo4ODEzMTgyMjY0MiwiaWRlbnRpdHkiOjMsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.boHINAKCdJoI7WDRaYTzXyWv8JEi4rsjaMvtAakBGY\"",
+                    "request": "curl -X POST http://localhost:5000/api/profiles/hnatahn/follow -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "msg": "Signature verification failed"
                     }
                 },
                 {
                     "id": 2,
-                    "request": "curl -X POST http://localhost:5000/api/profiles/hiennguyen/follow -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4MjI2NDIsIm5iZiI6MTczMTgyMjY0MiwianRpIjoiNGEzNzMwOTktMzkzNC00NDhmLTgxNzgtOWI1NjlhYmRhZGMzIiwiZXhwIjo4ODEzMTgyMjY0MiwiaWRlbnRpdHkiOjMsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.boHINAKCdJoI7WDRaYTzXyWv8JEi4rsjaMvtAakBGIY\"",
+                    "request": "curl -X POST http://localhost:5000/api/profiles/hiennguyen/follow -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "errors": {
                             "body": [
@@ -208,7 +209,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X DELETE http://localhost:5000/api/profiles/hnatahn/follow -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4MjI2NDIsIm5iZiI6MTczMTgyMjY0MiwianRpIjoiNGEzNzMwOTktMzkzNC00NDhmLTgxNzgtOWI1NjlhYmRhZGMzIiwiZXhwIjo4ODEzMTgyMjY0MiwiaWRlbnRpdHkiOjMsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.boHINAKCdJoI7WDRaYTzXyWv8JEi4rsjaMvtAakBGIY\"",
+                    "request": "curl -X DELETE http://localhost:5000/api/profiles/hnatahn/follow -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "profile": {
                             "bio": "I like to skateboard",
@@ -228,7 +229,7 @@
                 },
                 {
                     "id": 2,
-                    "request": "curl -X DELETE http://localhost:5000/api/profiles/hiennguyen/follow -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4MjI2NDIsIm5iZiI6MTczMTgyMjY0MiwianRpIjoiNGEzNzMwOTktMzkzNC00NDhmLTgxNzgtOWI1NjlhYmRhZGMzIiwiZXhwIjo4ODEzMTgyMjY0MiwiaWRlbnRpdHkiOjMsImZyZXNoIjpmYWxzZSwidHlwZSI6ImFjY2VzcyJ9.boHINAKCdJoI7WDRaYTzXyWv8JEi4rsjaMvtAakBGIY\"",
+                    "request": "curl -X DELETE http://localhost:5000/api/profiles/hiennguyen/follow -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "errors": {
                             "body": [
@@ -275,49 +276,6 @@
                             {
                                 "author": {
                                     "bio": null,
-                                    "email": "namcao@kaist.ac.kr",
-                                    "following": false,
-                                    "image": null,
-                                    "username": "namcao"
-                                },
-                                "body": "You have to believe",
-                                "createdAt": "2024-11-17T06:55:59.723400",
-                                "description": "Instant is the way to go",
-                                "favorited": false,
-                                "favoritesCount": 0,
-                                "slug": "how-to-brew-coffee",
-                                "tagList": [
-                                    "reactjs",
-                                    "angularjs",
-                                    "coffee"
-                                ],
-                                "title": "How to brew coffee",
-                                "updatedAt": "2024-11-17T06:55:59.723404"
-                            },
-                            {
-                                "author": {
-                                    "bio": null,
-                                    "email": "khuongle@kaist.ac.kr",
-                                    "following": false,
-                                    "image": null,
-                                    "username": "khuongle"
-                                },
-                                "body": "November 17th",
-                                "createdAt": "2024-11-17T11:37:38.679963",
-                                "description": "Today is",
-                                "favorited": false,
-                                "favoritesCount": 0,
-                                "slug": "what-day-is-it-today",
-                                "tagList": [
-                                    "reactjs",
-                                    "calendar"
-                                ],
-                                "title": "What day is it today",
-                                "updatedAt": "2024-11-17T11:37:38.679970"
-                            },
-                            {
-                                "author": {
-                                    "bio": null,
                                     "email": "kimvu@kaist.ac.kr",
                                     "following": false,
                                     "image": null,
@@ -338,7 +296,7 @@
                                 "updatedAt": "2024-11-17T11:40:36.292683"
                             }
                         ],
-                        "articlesCount": 4
+                        "articlesCount": 2
                     }
                 },
                 {
@@ -348,28 +306,6 @@
                         "articles": [
                             {
                                 "author": {
-                                    "bio": "I like to skateboard",
-                                    "email": "nhatanhvu@kaist.ac.kr",
-                                    "following": false,
-                                    "image": null,
-                                    "username": "nhatanhvu"
-                                },
-                                "body": "You have to believe",
-                                "createdAt": "2024-11-17T06:52:17.204857",
-                                "description": "Ever wonder how?",
-                                "favorited": false,
-                                "favoritesCount": 0,
-                                "slug": "how-to-train-your-dragon",
-                                "tagList": [
-                                    "reactjs",
-                                    "angularjs",
-                                    "dragons"
-                                ],
-                                "title": "How to train your dragon",
-                                "updatedAt": "2024-11-17T06:52:17.204866"
-                            },
-                            {
-                                "author": {
                                     "bio": null,
                                     "email": "namcao@kaist.ac.kr",
                                     "following": false,
@@ -389,65 +325,22 @@
                                 ],
                                 "title": "How to brew coffee",
                                 "updatedAt": "2024-11-17T06:55:59.723404"
-                            },
-                            {
-                                "author": {
-                                    "bio": null,
-                                    "email": "khuongle@kaist.ac.kr",
-                                    "following": false,
-                                    "image": null,
-                                    "username": "khuongle"
-                                },
-                                "body": "November 17th",
-                                "createdAt": "2024-11-17T11:37:38.679963",
-                                "description": "Today is",
-                                "favorited": false,
-                                "favoritesCount": 0,
-                                "slug": "what-day-is-it-today",
-                                "tagList": [
-                                    "reactjs",
-                                    "calendar"
-                                ],
-                                "title": "What day is it today",
-                                "updatedAt": "2024-11-17T11:37:38.679970"
-                            },
-                            {
-                                "author": {
-                                    "bio": null,
-                                    "email": "kimvu@kaist.ac.kr",
-                                    "following": false,
-                                    "image": null,
-                                    "username": "kimvu"
-                                },
-                                "body": "T1",
-                                "createdAt": "2024-11-17T11:40:36.292679",
-                                "description": "The new Worlds champion is",
-                                "favorited": false,
-                                "favoritesCount": 1,
-                                "slug": "worlds-2024",
-                                "tagList": [
-                                    "reactjs",
-                                    "LOL",
-                                    "esports"
-                                ],
-                                "title": "Worlds 2024",
-                                "updatedAt": "2024-11-17T11:40:36.292683"
                             }
                         ],
-                        "articlesCount": 4
+                        "articlesCount": 1
                     }
                 }
             ],
             "id": 7,
             "method": "GET",
             "endpoint": "/api/articles",
-            "description": "List recent articles globally by default. Provide \"tag\", \"author\", \"favorited\" (favorited by user: ?favorited=username), \"limit\" (default value = 20), or \"offset\" (default value = 0) query parameter to filter results. Authentication is optional, will return multiple articles, ordered by most recent first.\n"
+            "description": "List recent articles globally by default. Provide \"tag\", \"author\" (author's username), \"favorited\" (favorited by user: ?favorited=username), \"limit\" (default value = 20), or \"offset\" (default value = 0) query parameter to filter results. Authentication is optional, will return multiple articles, ordered by most recent first.\n"
         },
         {
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X GET http://localhost:5000/api/articles/feed -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4NTQzNTMsIm5iZiI6MTczMTg1NDM1MywianRpIjoiNjRkMmZiOWEtNWJkZS00MDNiLWFjMjktMTJmYWY1Y2U3YmJmIiwiZXhwIjo4ODEzMTg1NDM1MywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.LTFKLDpY8XaEOqa_QFyAh209dGtVRB3RS6LZwd70D_w\" -H \"Content-Type: application/json\"",
+                    "request": "curl -X GET http://localhost:5000/api/articles/feed -H \"Authorization: Token jwt.token.here\" -H \"Content-Type: application/json\"",
                     "response": {
                         "articles": [
                             {
@@ -471,67 +364,16 @@
                                 ],
                                 "title": "Worlds 2024",
                                 "updatedAt": "2024-11-17T11:40:36.292683"
-                            },
-                            {
-                                "author": {
-                                    "bio": null,
-                                    "email": "khuongle@kaist.ac.kr",
-                                    "following": true,
-                                    "image": null,
-                                    "username": "khuongle"
-                                },
-                                "body": "November 17th",
-                                "createdAt": "2024-11-17T11:37:38.679963",
-                                "description": "Today is",
-                                "favorited": true,
-                                "favoritesCount": 0,
-                                "slug": "what-day-is-it-today",
-                                "tagList": [
-                                    "reactjs",
-                                    "calendar"
-                                ],
-                                "title": "What day is it today",
-                                "updatedAt": "2024-11-17T11:37:38.679970"
-                            },
-                            {
-                                "author": {
-                                    "bio": null,
-                                    "email": "namcao@kaist.ac.kr",
-                                    "following": true,
-                                    "image": null,
-                                    "username": "namcao"
-                                },
-                                "body": "You have to believe",
-                                "createdAt": "2024-11-17T06:55:59.723400",
-                                "description": "Instant is the way to go",
-                                "favorited": true,
-                                "favoritesCount": 0,
-                                "slug": "how-to-brew-coffee",
-                                "tagList": [
-                                    "reactjs",
-                                    "angularjs",
-                                    "coffee"
-                                ],
-                                "title": "How to brew coffee",
-                                "updatedAt": "2024-11-17T06:55:59.723404"
                             }
                         ],
-                        "articlesCount": 3
-                    }
-                },
-                {
-                    "id": 1,
-                    "request": "curl -X GET http://localhost:5000/api/articles/feed -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4NTQ1MjQsIm5iZiI6MTczMTg1NDUyNCwianRpIjoiZjZhYjE4ZDQtOTFhMS00MGE5LThkMjktOTNkMTg1MDI4YWRkIiwiZXhwIjo4ODEzMTg1NDUyNCwiaWRlbnRpdHkiOjUsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.ZcCQiJmTJ1TOGx4zS70qpV0cfwbyfu74TE5sDB5w4Kg\" -H \"Content-Type: application/json\"",
-                    "response": {
-                        "articles": [],
-                        "articlesCount": 0
+                        "articlesCount": 1
                     }
                 }
             ],
             "id": 8,
             "method": "GET",
             "endpoint": "/api/articles/feed",
-            "description": "List articles in feed of the current user. Can also take \"limit\" (default value = 20) and \"offset\" (default value = 0) query paremeter like \"9. List Articles\". Authentication required, will return multiple articles created by followed users, ordered by most recent first.\n"
+            "description": "List articles in feed of the current user. Can also take \"limit\" (default value = 20) and \"offset\" (default value = 0) query paremeter. Authentication required, will return multiple articles created by followed users, ordered by most recent first.\n"
         },
         {
             "samples": [
@@ -584,7 +426,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X POST http://localhost:5000/api/articles -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4MjYyODYsIm5iZiI6MTczMTgyNjI4NiwianRpIjoiOTliZmM1NjMtYTVhOS00MzRlLWJmZmMtMDMzYWQyNmY2MDUyIiwiZXhwIjo4ODEzMTgyNjI4NiwiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.TfSXT5BtlK8Khhqsx-Jk2repUjLDPNZc4w2cXEMfmiI\" -H \"Content-Type: application/json\" -d '{\"article\": {\"title\": \"How to train your dragon\", \"description\": \"Ever wonder how?\", \"body\": \"You have to believe\", \"tagList\": [\"reactjs\", \"angularjs\", \"dragons\"]}}'",
+                    "request": "curl -X POST http://localhost:5000/api/articles -H \"Authorization: Token jwt.token.here\" -H \"Content-Type: application/json\" -d '{\"article\": {\"title\": \"How to train your dragon\", \"description\": \"Ever wonder how?\", \"body\": \"You have to believe\", \"tagList\": [\"reactjs\", \"angularjs\", \"dragons\"]}}'",
                     "response": {
                         "article": {
                             "author": {
@@ -609,34 +451,6 @@
                             "updatedAt": "2024-11-17T06:52:17.204866"
                         }
                     }
-                },
-                {
-                    "id": 1,
-                    "request": "curl -X POST http://localhost:5000/api/articles -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4MjY1MDUsIm5iZiI6MTczMTgyNjUwNSwianRpIjoiM2ZhZGI3Y2MtMDI3OC00MDY0LWJhMzEtY2M5MDEyMjA5NGNjIiwiZXhwIjo4ODEzMTgyNjUwNSwiaWRlbnRpdHkiOjMsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0._C0fOmInCz23c955ES1ZhCDpsgncRJgNk-hioAja388\" -H \"Content-Type: application/json\" -d '{\"article\": {\"title\": \"How to brew coffee\", \"description\": \"Instant is the way to go\", \"body\": \"You have to believe\", \"tagList\": [\"reactjs\", \"angularjs\", \"coffee\"]}}'",
-                    "response": {
-                        "article": {
-                            "author": {
-                                "bio": null,
-                                "email": "namcao@kaist.ac.kr",
-                                "following": false,
-                                "image": null,
-                                "username": "cvhnam"
-                            },
-                            "body": "You have to believe",
-                            "createdAt": "2024-11-17T06:55:59.723400",
-                            "description": "Instant is the way to go",
-                            "favorited": false,
-                            "favoritesCount": 0,
-                            "slug": "how-to-brew-coffee",
-                            "tagList": [
-                                "reactjs",
-                                "angularjs",
-                                "coffee"
-                            ],
-                            "title": "How to brew coffee",
-                            "updatedAt": "2024-11-17T06:55:59.723404"
-                        }
-                    }
                 }
             ],
             "id": 10,
@@ -648,7 +462,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X PUT http://localhost:5000//api/articles/how-to-brew-coffee -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzIxOTg3NTgsIm5iZiI6MTczMjE5ODc1OCwianRpIjoiNTQ3NmNhNDAtOTdiZi00YWU2LTg1ZjgtOGJkNjIwMGZjOWYzIiwiZXhwIjo4ODEzMjE5ODc1OCwiaWRlbnRpdHkiOjMsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.HTWiwUDMZarVhleiknzypblM2bjLPZaIbaeQlrT6NxU\" -H \"Content-Type: application/json\" -d '{\"article\": {\"title\": \"How to brew coffee and tea\"}}'",
+                    "request": "curl -X PUT http://localhost:5000//api/articles/how-to-brew-coffee -H \"Authorization: Token jwt.token.here\" -H \"Content-Type: application/json\" -d '{\"article\": {\"title\": \"How to brew coffee and tea\"}}'",
                     "response": {
                         "article": {
                             "author": {
@@ -676,7 +490,7 @@
                 },
                 {
                     "id": 1,
-                    "request": "curl -X PUT http://localhost:5000//api/articles/how-to-brew-water -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzIxOTg3NTgsIm5iZiI6MTczMjE5ODc1OCwianRpIjoiNTQ3NmNhNDAtOTdiZi00YWU2LTg1ZjgtOGJkNjIwMGZjOWYzIiwiZXhwIjo4ODEzMjE5ODc1OCwiaWRlbnRpdHkiOjMsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.HTWiwUDMZarVhleiknzypblM2bjLPZaIbaeQlrT6NxU\" -H \"Content-Type: application/json\" -d '{\"article\": {\"title\": \"How to brew coffee and tea\"}}'",
+                    "request": "curl -X PUT http://localhost:5000//api/articles/how-to-brew-water -H \"Authorization: Token jwt.token.here\" -H \"Content-Type: application/json\" -d '{\"article\": {\"title\": \"How to brew coffee and tea\"}}'",
                     "response": {
                         "errors": {
                             "body": [
@@ -695,7 +509,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X DELETE http://localhost:5000/api/articles/how-to-brew-coffee -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzIxOTkxNDgsIm5iZiI6MTczMjE5OTE0OCwianRpIjoiYWVhNTgxYzctYmJkMS00OTQ1LWFlZjItZGE1NDU0OGNiZDhmIiwiZXhwIjo4ODEzMjE5OTE0OCwiaWRlbnRpdHkiOjMsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.lnmes8aVQ7UXKfzvSulJnHAYgMF2usUQI2u4ioq3acc\"\n",
+                    "request": "curl -X DELETE http://localhost:5000/api/articles/how-to-brew-coffee -H \"Authorization: Token jwt.token.here\"\n",
                     "response": ""
                 }
             ],
@@ -708,7 +522,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X POST http://localhost:5000/api/articles/worlds-2024/comments -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4NDM2NjAsIm5iZiI6MTczMTg0MzY2MCwianRpIjoiNmQ2MjY0MTEtNDYwYS00NTZjLTg4ZGMtYjdiYTdiYmNlYWM3IiwiZXhwIjo4ODEzMTg0MzY2MCwiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0._bfHfPQXVyVDivsGpKSNhrtsN5OKjxEQiNK-z589ihY\" -H \"Content-Type: application/json\" -d '{\"comment\": {\"body\": \"T1 luckkkk\"}}'",
+                    "request": "curl -X POST http://localhost:5000/api/articles/worlds-2024/comments -H \"Authorization: Token jwt.token.here\" -H \"Content-Type: application/json\" -d '{\"comment\": {\"body\": \"T1 luckkkk\"}}'",
                     "response": {
                         "comment": {
                             "author": {
@@ -727,7 +541,7 @@
                 },
                 {
                     "id": 1,
-                    "request": "curl -X POST http://localhost:5000/api/articles/how-to-make-tea/comments -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4NDY4NTMsIm5iZiI6MTczMTg0Njg1MywianRpIjoiY2ZhM2FhNzktYWFjNC00Zjg5LWJjMjktMGNhYWI5NzE1MzU2IiwiZXhwIjo4ODEzMTg0Njg1MywiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.BlsEmXYXCTLMWswEiqROACHTWRDn40Bal1RuqKvP9rQ\" -H \"Content-Type: application/json\" -d '{\"comment\": {\"body\": \"Great share!!\"}}'",
+                    "request": "curl -X POST http://localhost:5000/api/articles/how-to-make-tea/comments -H \"Authorization: Token jwt.token.here\" -H \"Content-Type: application/json\" -d '{\"comment\": {\"body\": \"Great share!!\"}}'",
                     "response": {
                         "errors": {
                             "body": [
@@ -806,7 +620,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X DELETE http://localhost:5000/api/articles/worlds-2024/comments/2 -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzIxOTk1MjYsIm5iZiI6MTczMjE5OTUyNiwianRpIjoiYThjMDdiZmQtMzhjNi00YzYyLWE0MTgtOTc2MzE3MzlkNDllIiwiZXhwIjo4ODEzMjE5OTUyNiwiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.2J2YEPFNsPa6tpP_1UuvFkHW1Se-E61jGVfqm9V1JGo\"\n",
+                    "request": "curl -X DELETE http://localhost:5000/api/articles/worlds-2024/comments/2 -H \"Authorization: Token jwt.token.here\"\n",
                     "response": ""
                 }
             ],
@@ -819,7 +633,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X POST http://localhost:5000/api/articles/worlds-2024/favorite -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4NDM2NjAsIm5iZiI6MTczMTg0MzY2MCwianRpIjoiNmQ2MjY0MTEtNDYwYS00NTZjLTg4ZGMtYjdiYTdiYmNlYWM3IiwiZXhwIjo4ODEzMTg0MzY2MCwiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0._bfHfPQXVyVDivsGpKSNhrtsN5OKjxEQiNK-z589ihY\"",
+                    "request": "curl -X POST http://localhost:5000/api/articles/worlds-2024/favorite -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "article": {
                             "author": {
@@ -847,35 +661,7 @@
                 },
                 {
                     "id": 1,
-                    "request": "curl -X POST http://localhost:5000/api/articles/how-to-train-your-dragon/favorite -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4NDM2NjAsIm5iZiI6MTczMTg0MzY2MCwianRpIjoiNmQ2MjY0MTEtNDYwYS00NTZjLTg4ZGMtYjdiYTdiYmNlYWM3IiwiZXhwIjo4ODEzMTg0MzY2MCwiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0._bfHfPQXVyVDivsGpKSNhrtsN5OKjxEQiNK-z589ihY\"",
-                    "response": {
-                        "article": {
-                            "author": {
-                                "bio": "I like to skateboard",
-                                "email": "nhatanhvu@kaist.ac.kr",
-                                "following": false,
-                                "image": null,
-                                "username": "nhatanhvu"
-                            },
-                            "body": "You have to believe",
-                            "createdAt": "2024-11-17T06:52:17.204857",
-                            "description": "Ever wonder how?",
-                            "favorited": true,
-                            "favoritesCount": 0,
-                            "slug": "how-to-train-your-dragon",
-                            "tagList": [
-                                "reactjs",
-                                "angularjs",
-                                "dragons"
-                            ],
-                            "title": "How to train your dragon",
-                            "updatedAt": "2024-11-17T06:52:17.204866"
-                        }
-                    }
-                },
-                {
-                    "id": 2,
-                    "request": "curl -X POST http://localhost:5000/api/articles/how-to-train-your-dogs/favorite -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzE4NDYzMjUsIm5iZiI6MTczMTg0NjMyNSwianRpIjoiNjhjNmZhMTItMzQ4MS00MzAzLThmMTktMmNjODBhNWEyNmFjIiwiZXhwIjo4ODEzMTg0NjMyNSwiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.INB3SkA5k0AVx0-EyJGU_RKMeWx0GE7KlBA2ms57Cfo\"\n",
+                    "request": "curl -X POST http://localhost:5000/api/articles/how-to-train-your-dogs/favorite -H \"Authorization: Token jwt.token.here\"\n",
                     "response": ""
                 }
             ],
@@ -888,7 +674,7 @@
             "samples": [
                 {
                     "id": 0,
-                    "request": "curl -X DELETE http://localhost:5000/api/articles/worlds-2024/favorite -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzIxOTk1MjYsIm5iZiI6MTczMjE5OTUyNiwianRpIjoiYThjMDdiZmQtMzhjNi00YzYyLWE0MTgtOTc2MzE3MzlkNDllIiwiZXhwIjo4ODEzMjE5OTUyNiwiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.2J2YEPFNsPa6tpP_1UuvFkHW1Se-E61jGVfqm9V1JGo\"",
+                    "request": "curl -X DELETE http://localhost:5000/api/articles/worlds-2024/favorite -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "article": {
                             "author": {
@@ -916,7 +702,7 @@
                 },
                 {
                     "id": 1,
-                    "request": "curl -X DELETE http://localhost:5000/api/articles/worlds-2025/favorite -H \"Authorization: Token eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3MzIxOTk1MjYsIm5iZiI6MTczMjE5OTUyNiwianRpIjoiYThjMDdiZmQtMzhjNi00YzYyLWE0MTgtOTc2MzE3MzlkNDllIiwiZXhwIjo4ODEzMjE5OTUyNiwiaWRlbnRpdHkiOjIsImZyZXNoIjp0cnVlLCJ0eXBlIjoiYWNjZXNzIn0.2J2YEPFNsPa6tpP_1UuvFkHW1Se-E61jGVfqm9V1JGo\"",
+                    "request": "curl -X DELETE http://localhost:5000/api/articles/worlds-2025/favorite -H \"Authorization: Token jwt.token.here\"",
                     "response": {
                         "errors": {
                             "body": [

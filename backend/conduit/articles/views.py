@@ -6,10 +6,11 @@ from flask import Blueprint, jsonify
 from flask_apispec import marshal_with, use_kwargs
 from flask_jwt_extended import current_user, jwt_required, jwt_optional
 from marshmallow import fields
+from sqlalchemy.orm import aliased
 
 from conduit.exceptions import InvalidUsage
 from conduit.user.models import User
-from .models import Article, Tags, Comment
+from .models import Article, Tags, Comment, UserProfile
 from .serializers import (article_schema, articles_schema, comment_schema,
                           comments_schema)
 
@@ -23,16 +24,29 @@ blueprint = Blueprint('articles', __name__)
 @blueprint.route('/api/articles', methods=('GET',))
 @jwt_optional
 @use_kwargs({'tag': fields.Str(), 'author': fields.Str(),
-             'favorited': fields.Str(), 'limit': fields.Int(), 'offset': fields.Int()})
+             'favorited': fields.Str(), 'limit': fields.Int(), 'offset': fields.Int()}, location="query")
 @marshal_with(articles_schema)
 def get_articles(tag=None, author=None, favorited=None, limit=20, offset=0):
     res = Article.query
     if tag:
         res = res.filter(Article.tagList.any(Tags.tagname == tag))
+
+    # Author filter (alias userprofile and users)
     if author:
-        res = res.join(Article.author).join(User).filter(User.username == author)
+        author_profile = aliased(UserProfile)
+        author_user = aliased(User)
+        res = res.join(author_profile, Article.author) \
+                 .join(author_user, author_user.id == author_profile.user_id) \
+                 .filter(author_user.username == author)
+
+    # Favorited filter (alias userprofile and users again)
     if favorited:
-        res = res.join(Article.favoriters).filter(User.username == favorited)
+        favoriter_profile = aliased(UserProfile)
+        favoriter_user = aliased(User)
+        res = res.join(favoriter_profile, Article.favoriters) \
+                 .join(favoriter_user, favoriter_user.id == favoriter_profile.user_id) \
+                 .filter(favoriter_user.username == favorited)
+    
     return res.offset(offset).limit(limit).all()
 
 
@@ -113,7 +127,7 @@ def unfavorite_an_article(slug):
 
 @blueprint.route('/api/articles/feed', methods=('GET',))
 @jwt_required
-@use_kwargs({'limit': fields.Int(), 'offset': fields.Int()})
+@use_kwargs({'limit': fields.Int(), 'offset': fields.Int()}, location="query")
 @marshal_with(articles_schema)
 def articles_feed(limit=20, offset=0):
     return Article.query.join(current_user.profile.follows). \
@@ -152,7 +166,7 @@ def make_comment_on_article(slug, body, **kwargs):
     if not article:
         raise InvalidUsage.article_not_found()
     comment = Comment(article, current_user.profile, body, **kwargs)
-    comment.save()
+    comment.save() # inject fault here
     return comment
 
 
@@ -161,7 +175,7 @@ def make_comment_on_article(slug, body, **kwargs):
 def delete_comment_on_article(slug, cid):
     article = Article.query.filter_by(slug=slug).first()
     if not article:
-        raise InvalidUsage.article_not_found()
+        raise InvalidUsage.article_not_found() # change to my_fault
 
     comment = article.comments.filter_by(id=cid, author=current_user.profile).first()
     comment.delete()

@@ -1,4 +1,4 @@
-Based on the reasoning below, determine whether there is a directional relationship between APIs `{id1}` and `{id2}` using the definition provided:
+Based on the reasoning below, determine whether there is a directional relationship from API X (`{id1}`) to API Y (`{id2}`) using the definition provided:
 Return the result in the required JSON format.
 
 API {id1}:
@@ -9,3 +9,5 @@ API {id2}:
 
 Reasoning:
 {reasoning_text}
+
+Please analyze the provided information and reasoning to produce the structural output in the specified JSON format.

@@ -72,7 +72,6 @@ class GoogleModel(BaseModel):
         Query the Google API
         """
         try:
-            time.sleep(1)
             model = genai.GenerativeModel(
                 model_name=self.args.model_name,
                 generation_config=genai.GenerationConfig(
