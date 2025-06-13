@@ -5,6 +5,7 @@ from .datatypes import *
 class RandomGenerator:
     MIN_LENGTH = 1
     MAX_LENGTH = 100
+    MAX_INT_LENGTH = 18
 
     def __init__(self):
         pass
@@ -29,6 +30,8 @@ class RandomGenerator:
     def generate_random_int(self, length: Optional[int] = None, chars: str = INT_CHARS) -> int:
         if length is None:
             length = self.generate_random_length()
+        if length > self.MAX_INT_LENGTH:
+            length = self.MAX_INT_LENGTH
         length = random.choice([1, length])
         return int(''.join(random.choice(chars) for _ in range(length)))
 
@@ -92,7 +95,7 @@ class RandomGenerator:
             return self.generate_random_float()
     
     def generate_random_email(self) -> str:
-        return f"{self.generate_random_string(10)}@{self.generate_random_string(5)}.com"
+        return f"{self.generate_random_string(10, STR_CHARS_NO_SPECIAL)}@{self.generate_random_string(5, STR_CHARS_NO_SPECIAL)}.com"
     
     def generate_random_jwt_token(self) -> str:
         return self.generate_random_string(32) + "." + self.generate_random_string(32) + "." + self.generate_random_string(32)

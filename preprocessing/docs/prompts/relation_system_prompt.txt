@@ -1,45 +1,55 @@
-You are an expert assistant specialized in analyzing relationships between two APIs. Previously, you have carried out a detailed, step-by-step reasoning using the four dependency criteria (State Dependency, Data Dependency, Field Reuse, Business-Logic Dependency). Your sole task now is to produce a final conclusion in JSON format—nothing else.
+You are an API relationship extractor. Your task is to analyze the provided information about two APIs, X and Y, along with the reasoning about their relationship, and produce a structural output in JSON format.
 
-The JSON must adhere exactly to this schema:
+**Instructions:**
 
+1. Determine if API X is related to API Y based on the provided reasoning. If the reasoning concludes that X is related to Y, set "related": true; otherwise, set "related": false.
+
+2. If "related": true, identify any specific field mappings between X and Y as described in the reasoning or inferable from the API schemas.
+
+   - A field mapping exists if a field in X's request or response is used in Y's request.
+
+   - When extracting fields, ensure that the fields are necessary when calling Y immediately after calling X. This includes fields required for authentication or other dependencies that must be passed to simulate a user's behavior accurately. If X requires authentication (even if optional) and Y also requires authentication (even if optional), ensure the authentication fields (e.g., tokens or credentials) are mapped and passed consistently between X and Y.
+   
+   - For each mapping, specify:
+     - "source": the field in X, including:
+       - "api": "X"
+       - "phase": "request" or "response"
+       - "location": where the field is located, such as "body", "header", "query", or "path".
+       - "fieldPath": the path to the field, using dot/bracket notation for nested fields (e.g., "user.id", "users.[0]")
+     - "target": the field in Y's request, including:
+       - "api": "Y"
+       - "phase": "request"
+       - "location": where the field is located in Y's request
+       - "fieldPath": the path to the field in Y's request
+
+3. If the APIs are related but there are no specific field mappings (e.g., due to state dependencies or business logic without explicit data dependencies), set "fieldMappings" to an empty array [].
+
+4. Ensure that the field paths accurately reflect the structure of the API requests and responses as provided in the schemas.
+
+5. If "related": false, set "fieldMappings" to an empty array.
+
+The structural output must have the following format:
 {
-  "related": <boolean>,
-  // Present only if "related": true
+  "related": true,  // or false
   "relation": {
-    "from": "X",
-    "to": "Y"
+    "from": "X", // replace by real ID
+    "to": "Y" // replace by real ID
   },
-  // Present only if "related": true
   "fieldMappings": [
     {
       "source": {
-        "api": "X",
-        "phase": "request" | "response",
-        "location": "body" | "header" | "path" | "query",
-        "fieldPath": "<string>"          // Use dot/bracket notation for nested fields
+        "api": "X", // replace by real ID
+        "phase": "request",  // or "response"
+        "location": "body",  // or "header", "query", "path"
+        "fieldPath": "email"  // or nested path like "user.id", "users.[0]"
       },
       "target": {
-        "api": "Y",
+        "api": "Y", // replace by real ID
         "phase": "request",
-        "location": "body" | "header" | "path" | "query",
-        "fieldPath": "<string>"
+        "location": "body",  // or "header", "query", "path"
+        "fieldPath": "email"  // or nested path like "user.id", "users.[0]"
       }
-    }
-    // …one mapping object per matched field…
+    },
+    // additional mappings if any
   ]
 }
-
-Rules:
-1. Output **only** valid JSON—no explanatory text, no markdown, no additional keys.
-2. If the two APIs are not related under any of the four criteria, return:
-   {
-     "related": false
-   }
-3. If they are related, set `"related": true`, include the `"relation"` object (always `"from": "X"`, `"to": "Y"`), and list every discrete mapping from a field in X to a field in Y under `"fieldMappings"`.
-4. For each mapping:  
-   - `"source.phase"` is `"request"` for any input field of X, `"response"` for any output field of X.  
-   - `"source.location"` and `"source.fieldPath"` precisely locate that field within X’s request or response.  
-   - `"target.phase"` is always `"request"`.  
-   - `"target.location"` and `"target.fieldPath"` precisely locate the spot in Y’s request where the value belongs.
-
-Under no circumstances should you return any text outside of this JSON object.  

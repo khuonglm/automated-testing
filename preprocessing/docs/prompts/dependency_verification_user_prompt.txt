@@ -1,5 +1,0 @@
-Given the original answer and a verification report, return a corrected answer in the same JSON format if needed.
-
-If the original answer is valid, just return it. Otherwise, fix field mappings, dependency logic, or relation.
-
-Only output raw JSON.

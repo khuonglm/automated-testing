@@ -9,7 +9,7 @@ load_dotenv()
 curr_dir = os.path.dirname(os.path.abspath(__file__))
 model = GoogleModel(ModelArguments(model_name="models/gemini-2.0-flash-lite"))
 
-def dependency_extraction(api1: dict, api2: dict, dependency_type: str, curr_time: str) -> list[str]:
+def dependency_extraction(api1: dict, api2: dict, curr_time: str) -> list[str]:
     """
     Extract the dependencies between the two APIs.
     """
@@ -18,9 +18,9 @@ def dependency_extraction(api1: dict, api2: dict, dependency_type: str, curr_tim
 
     while True:
         # Reasoning
-        with open(os.path.join(curr_dir, "docs", "prompts", f"{dependency_type}_reasoning_system_prompt.txt"), "r") as f:
+        with open(os.path.join(curr_dir, "docs", "prompts", f"relation_reasoning_system_prompt.txt"), "r") as f:
             dependency_reasoning_system_prompt = f.read()
-        with open(os.path.join(curr_dir, "docs", "prompts", f"{dependency_type}_reasoning_user_prompt.txt"), "r") as f:
+        with open(os.path.join(curr_dir, "docs", "prompts", f"relation_reasoning_user_prompt.txt"), "r") as f:
             dependency_reasoning_user_prompt = f.read()
         user_prompt = dependency_reasoning_user_prompt\
             .replace('{id1}', str(api1["id"]))\
@@ -31,14 +31,14 @@ def dependency_extraction(api1: dict, api2: dict, dependency_type: str, curr_tim
         print(user_prompt)
         response = model.query(dependency_reasoning_system_prompt, user_prompt)
 
-        with open(os.path.join(curr_dir, "docs", "llm_logs", f"{dependency_type}_reasoning_{curr_time}.txt"), "a") as f:
-            f.write(f"User Prompt: {user_prompt}\n")
-            f.write(f"Response: {response}\n\n")
+        # with open(os.path.join(curr_dir, "docs", "llm_logs", f"relation_reasoning_{curr_time}.txt"), "a") as f:
+        #     f.write(f"User Prompt: {user_prompt}\n")
+        #     f.write(f"Response: {response}\n\n")
 
         # Decision
-        with open(os.path.join(curr_dir, "docs", "prompts", f"{dependency_type}_system_prompt.txt"), "r") as f:
+        with open(os.path.join(curr_dir, "docs", "prompts", f"relation_system_prompt.txt"), "r") as f:
             dependency_system_prompt = f.read()
-        with open(os.path.join(curr_dir, "docs", "prompts", f"{dependency_type}_user_prompt.txt"), "r") as f:
+        with open(os.path.join(curr_dir, "docs", "prompts", f"relation_user_prompt.txt"), "r") as f:
             dependency_user_prompt = f.read()
 
         user_prompt = dependency_user_prompt\
@@ -50,9 +50,9 @@ def dependency_extraction(api1: dict, api2: dict, dependency_type: str, curr_tim
         print(user_prompt)
         response = model.query(dependency_system_prompt, user_prompt)
 
-        with open(os.path.join(curr_dir, "docs", "llm_logs", f"{dependency_type}_decision_{curr_time}.txt"), "a") as f:
-            f.write(f"User Prompt: {user_prompt}\n")
-            f.write(f"Response: {response}\n\n")
+        # with open(os.path.join(curr_dir, "docs", "llm_logs", f"relation_decision_{curr_time}.txt"), "a") as f:
+        #     f.write(f"User Prompt: {user_prompt}\n")
+        #     f.write(f"Response: {response}\n\n")
 
         if response is None:
             return None
@@ -72,7 +72,7 @@ def dependency_extraction(api1: dict, api2: dict, dependency_type: str, curr_tim
 
     return json.loads(response)
 
-def dependency_collection(dependency_type: str) -> list[str]:
+def dependency_collection() -> list[str]:
     """
     Collect the dependencies between the APIs.
     """
@@ -80,21 +80,19 @@ def dependency_collection(dependency_type: str) -> list[str]:
     with open(os.path.join(curr_dir, "docs", "api_documentation.json"), "r") as f:
         api_documentation = json.load(f)
 
-    relationship = "related" if dependency_type == "relation" else "dependent"
     dependencies = {}
     for api1 in api_documentation["APIs"]:
         for api2 in api_documentation["APIs"]:
             if api1["id"] == api2["id"]:
                 continue
 
-            dependency = dependency_extraction(api1, api2, dependency_type, curr_time)
-            if dependency is not None and bool(dependency[relationship]):
+            dependency = dependency_extraction(api1, api2, curr_time)
+            if dependency is not None and bool(dependency["related"]):
                 if api1["id"] not in dependencies:
                     dependencies[api1["id"]] = []
                 dependencies[api1["id"]].append(dependency)
     
-    name = "dependencies" if dependency_type == "dependency" else "relations"
-    with open(os.path.join(curr_dir, "docs", "output", f"{name}_{curr_time}.json"), "w") as f:
+    with open(os.path.join(curr_dir, "docs", "output", f"relations_{curr_time}.json"), "w") as f:
         f.write(json.dumps(dependencies, indent=4))
 
 def api_extraction() -> list[str]:
@@ -174,7 +172,6 @@ def graph_generation() -> dict[str, list[dict[str, str]]]:
     return graph
 
 if __name__ == "__main__":
-    # dependency_collection("dependency")
-    # dependency_collection("relation")
+    dependency_collection()
     # api_extraction()
-    graph_generation()
+    # graph_generation()

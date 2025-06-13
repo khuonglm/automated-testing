@@ -136,6 +136,8 @@ class Sequencer:
                     _find_paths(dep_api, visited, current_path, all_paths)
                     current_path.pop()
                     visited.remove(dep_api)
+                else:
+                    all_paths.append(current_path[:] + [dep_api])
 
         # Validate start_node
         if start_node not in self.adj_list:
@@ -146,34 +148,56 @@ class Sequencer:
         current_path = [start_node]
         _find_paths(start_node, visited, current_path, all_paths)
         return all_paths
-    
 
-    def random_sequence(self, max_length: int, random_generator=RandomGenerator()) -> list[str]:
-        """
-        Generate a random sequence of APIs with a maximum length of max_length, allowing duplicates.
-        The sequence always start with register and login, so max_length must be at least 3
-        """
-        if max_length < 3:
-            raise ValueError("sequence always start with register and login, so max_length must be at least 3.")
-
+    def _sample_path(self) -> list[str]:
         # Get all possible nodes (API indices)
         nodes = list(self.adj_list.keys())
         if not nodes:
             return []
 
-        # Initialize the sequence with register and login
-        sequence = ['1', '0']
+        in_deg = {node: 0 for node in nodes}
+        for node in nodes:
+            for dep in self.adj_list[node]:
+                in_deg[dep] += 1
 
-        # Generate sequence up to max_length
-        for _ in range(max_length - 2):
-            # Randomly select a node
-            selected_node = random_generator.choice(self.adj_list[sequence[-1]])
-            sequence.append(selected_node)
-        return sequence
-    
+        def _find_paths(node: str, visited: set[str], current_path: list[str], start_node: str):
+            adj_list = self.adj_list.get(node, [])
+            if node != start_node or random.random() < 0.05:
+                random.shuffle(adj_list)
+
+            for dep_api in adj_list:
+                if dep_api not in visited:
+                    visited.add(dep_api)
+                    return _find_paths(dep_api, visited, current_path + [dep_api], start_node)
+                if random.random() < 0.05:
+                    return current_path[:] + [dep_api]
+
+            return current_path[:]
+ 
+        path = []
+        for node in nodes:
+            if in_deg[node] == 0:
+                path += _find_paths(node, set(), [node], node)[:]
+        return path
+
+    def random_sequence(self, min_length: int, random_generator=RandomGenerator()) -> list[str]:
+        """
+        Generate a random sequence of APIs with a maximum length of max_length, allowing duplicates.
+        The sequence always start with register and login, so max_length must be at least 3
+        """
+        assert min_length > 0, "min_length must be at least 1"
+        path = []
+        while len(path) < min_length:
+            path = path + self._sample_path()
+        visited_nodes = set(path)
+        for node in list(self.adj_list.keys()):
+            if node not in visited_nodes:
+                path = path + [str(node)]
+        return path
+
 
 if __name__ == "__main__":
-    with open('relations_2025-06-01_13-38-34.json') as json_file:
+    with open('../preprocessing/docs/output/relations.json') as json_file:
         dependencies = json.load(json_file)
     
     sequencer = Sequencer(dependencies, example_apis)
@@ -185,6 +209,6 @@ if __name__ == "__main__":
 
     print("----------------------------------------------")
 
-    for _ in range(20):
-        sequence = sequencer.random_sequence(20)
+    for _ in range(3):
+        sequence = sequencer.random_sequence(100)
         print(sequence)
